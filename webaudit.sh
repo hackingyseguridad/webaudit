@@ -34,42 +34,61 @@ echo "==========================================="
 echo
 
 host $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 wget -O temp_aspnet_config_err --tries=1 $1/%7C~.aspx
 wget -O temp_wp_check --tries=1 $1/wp-admin
 wget -O temp_drp_check --tries=1 $1/user
 wget -O temp_joom_check --tries=1 $1/administrator
+echo -e "\e[00;32m#########################################################\e[00m" 
 uniscan -e -u $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 wafw00f $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -F --open -Pn $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 theharvester -l 50 -b google -d $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 dnsrecon -d $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 fierce -wordlist xxx -dns $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 dnswalk -d $1.
+echo -e "\e[00;32m#########################################################\e[00m" 
 whois $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p80 --script http-security-headers -Pn $1
 nmap -p80,443 --script http-slowloris --max-parallelism 500 -Pn $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 sslyze --heartbleed $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p443 --script ssl-heartbleed -Pn $1
 nmap -p443 --script ssl-poodle -Pn $1
 nmap -p443 --script ssl-ccs-injection -Pn $1
 nmap -p443 --script ssl-enum-ciphers -Pn $1
 nmap -p443 --script ssl-dh-params -Pn $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 sslyze --certinfo=basic $1
 sslyze --compression $1
 sslyze --reneg $1
 sslyze --resum $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 lbd $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 golismero -e dns_malware scan $1
 golismero -e heartbleed scan $1
 golismero -e brute_url_predictables scan $1
 golismero -e brute_directories scan $1
 golismero -e sqlmap scan $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 dirb http://$1 -fi
+echo -e "\e[00;32m#########################################################\e[00m" 
 xsser --all=http://$1
+echo -e "\e[00;32m#########################################################\e[00m" 
 golismero -e sslscan scan $1
 golismero -e zone_transfer scan $1
 golismero -e nikto scan $1
 golismero -e brute_dns scan $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 dnsenum $1
 fierce -dns $1
 dmitry -e $1
