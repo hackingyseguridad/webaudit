@@ -90,19 +90,27 @@ golismero -e nikto scan $1
 golismero -e brute_dns scan $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 dnsenum $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 fierce -dns $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 dmitry -e $1
 dmitry -s $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p23 --open $1
 nmap -p21 --open $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap --script stuxnet-detect -p 445 $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 davtest -url http://$1
+echo -e "\e[00;32m#########################################################\e[00m" 
 golismero -e fingerprint_web scan $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 uniscan -w -u $1
 uniscan -q -u $1
 uniscan -r -u $1
 uniscan -s -u $1
 uniscan -d -u $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 nikto -Plugins 'apache_expect_xss' -host $1
 nikto -Plugins 'subdomain' -host $1
 nikto -Plugins 'shellshock' -host $1
@@ -117,7 +125,9 @@ nikto -Plugins 'cgi' -host $1
 nikto -Plugins 'ssl' -host $1
 nikto -Plugins 'sitefiles' -host $1
 nikto -Plugins 'paths' -host $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 dnsmap $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p1433 --open -Pn $1
 nmap -p3306 --open -Pn $1
 nmap -p1521 --open -Pn $1
@@ -126,9 +136,15 @@ nmap -p3389 --open -sT -Pn $1
 nmap -p1-65535 --open -Pn $1
 nmap -p1-65535 -sU --open -Pn $1
 nmap -p161 -sU --open -Pn $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 wget -O temp_aspnet_elmah_axd --tries=1 $1/elmah.axd
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p445,137-139 --open -Pn $1
 nmap -p137,138 --open -Pn $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 wapiti $1 -f txt -o temp_wapiti
+echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p80 --script=http-iis-webdav-vuln -Pn $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 whatweb $1
+echo -e "\e[00;32m#########################################################\e[00m" 
