@@ -112,4 +112,4 @@ nmap -p445,137-139 --open -Pn $1
 nmap -p137,138 --open -Pn $1
 wapiti $1 -f txt -o temp_wapiti
 nmap -p80 --script=http-iis-webdav-vuln -Pn $1
-whatweb $1 -a 1"]
+whatweb $1
