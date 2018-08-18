@@ -83,7 +83,7 @@ fierce -dns $1
 dnsmap $1
 dnsenum $1
 echo
-echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Vulnerabilidades DNS ########################################################\e[00m" 
 echo
 dnswalk -d $1.
 echo
@@ -112,7 +112,7 @@ golismero -e zone_transfer scan $1
 golismero -e nikto scan $1
 golismero -e brute_dns scan $1
 echo
-echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Descubre directorios por fuerza bruta ########################################################\e[00m" 
 echo
 dirb http://$1 -fi
 echo
@@ -125,11 +125,11 @@ echo
 dmitry -e $1
 dmitry -s $1
 echo
-echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Vulnerabilidad DAV ########################################################\e[00m" 
 echo
 davtest -url http://$1
 echo
-echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Vulnerabilidad web ########################################################\e[00m" 
 echo
 golismero -e fingerprint_web scan $1
 echo
