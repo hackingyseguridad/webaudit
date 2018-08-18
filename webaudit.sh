@@ -39,14 +39,14 @@ nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --open -sCV 
 echo -e "\e[00;32m# Informacion del servidor web ########################################################\e[00m" 
 whatweb $1
 echo -e "\e[00;32m#########################################################\e[00m" 
+uniscan -e -u $1
+echo -e "\e[00;32m# Detecta firewall WAF ########################################################\e[00m" 
+wafw00f $1
+echo -e "\e[00;32m#########################################################\e[00m" 
 wget -O temp_aspnet_config_err --tries=1 $1/%7C~.aspx
 wget -O temp_wp_check --tries=1 $1/wp-admin
 wget -O temp_drp_check --tries=1 $1/user
 wget -O temp_joom_check --tries=1 $1/administrator
-echo -e "\e[00;32m#########################################################\e[00m" 
-uniscan -e -u $1
-echo -e "\e[00;32m#########################################################\e[00m" 
-wafw00f $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -F --open -Pn $1
 echo -e "\e[00;32m#########################################################\e[00m" 
