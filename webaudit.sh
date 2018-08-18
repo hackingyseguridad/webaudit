@@ -34,6 +34,8 @@ echo "==========================================="
 echo
 
 host $1
+echo -e "\e[00;32m# Escaneo de puertos habituales ########################################################\e[00m" 
+nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --open -sCV -O 
 echo -e "\e[00;32m#########################################################\e[00m" 
 wget -O temp_aspnet_config_err --tries=1 $1/%7C~.aspx
 wget -O temp_wp_check --tries=1 $1/wp-admin
