@@ -80,6 +80,7 @@ fierce -wordlist xxx -dns $1
 fierce -dns $1
 dnsmap $1
 dnsenum $1
+echo
 echo -e "\e[00;32m#########################################################\e[00m" 
 echo
 dnswalk -d $1.
