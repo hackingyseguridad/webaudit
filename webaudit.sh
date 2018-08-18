@@ -34,8 +34,6 @@ echo "==========================================="
 echo
 echo -e "\e[00;32m# Informacion del host ########################################################\e[00m" 
 host $1
-echo -e "\e[00;32m# Indormacion del dominio ########################################################\e[00m" 
-whois $1
 echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m" 
 nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --script http-security-headers --open -sCV -O 
 echo -e "\e[00;32m# Escaneo con Nmap de otros puertos  de servicio sensibles ########################################################\e[00m" 
@@ -74,7 +72,6 @@ sslyze --certinfo=basic $1
 sslyze --compression $1
 sslyze --reneg $1
 sslyze --resum $1
-
 echo -e "\e[00;32m#########################################################\e[00m" 
 golismero -e dns_malware scan $1
 golismero -e heartbleed scan $1
@@ -146,3 +143,5 @@ wapiti $1 -f txt -o temp_wapiti
 echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p80 --script=http-iis-webdav-vuln -Pn $1
 echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Indormacion de registro del dominio ########################################################\e[00m" 
+whois $1
