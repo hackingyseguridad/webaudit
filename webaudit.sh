@@ -140,7 +140,7 @@ uniscan -r -u $1
 uniscan -s -u $1
 uniscan -d -u $1
 echo
-echo -e "\e[00;32m# Vulnerabilidades con Nikto ########################################################\e[00m" 
+echo -e "\e[00;32m# Vulnerabilidades web con Nikto ########################################################\e[00m" 
 echo
 nikto -Plugins 'apache_expect_xss' -host $1
 nikto -Plugins 'subdomain' -host $1
@@ -160,7 +160,7 @@ echo
 echo -e "\e[00;32m# Analisis con wapiti ########################################################\e[00m" 
 wapiti $1 -f txt -o temp_wapiti
 echo
-echo -e "\e[00;32m# Indormacion de registro del dominio ########################################################\e[00m" 
+echo -e "\e[00;32m# Informacion de registro del dominio ########################################################\e[00m" 
 echo
 whois $1
 echo
