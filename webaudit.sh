@@ -33,6 +33,7 @@ echo "test sobre la url.: $1"
 echo "================================================="
 echo
 echo -e "\e[00;32m# Informacion del host ########################################################\e[00m" 
+echo
 host $1
 echo
 echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m" 
