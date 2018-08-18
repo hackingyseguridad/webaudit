@@ -34,34 +34,31 @@ echo "==========================================="
 echo
 echo -e "\e[00;32m# Informacion del host ########################################################\e[00m" 
 host $1
+echo -e "\e[00;32m# Indormacion del dominio ########################################################\e[00m" 
+whois $1
 echo -e "\e[00;32m# Escaneo de puertos web habituales ########################################################\e[00m" 
-nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --open -sCV -O 
+nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --script http-security-headers --open -sCV -O 
 echo -e "\e[00;32m# Informacion del servidor web ########################################################\e[00m" 
 whatweb $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 uniscan -e -u $1
+echo -e "\e[00;32m# Detecta firewall o balanceador ########################################################\e[00m" 
+lbd $1
 echo -e "\e[00;32m# Detecta firewall WAF ########################################################\e[00m" 
 wafw00f $1
+echo -e "\e[00;32m# Informacion en internet ########################################################\e[00m" 
+theharvester -l 50 -b google -d $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 wget -O temp_aspnet_config_err --tries=1 $1/%7C~.aspx
 wget -O temp_wp_check --tries=1 $1/wp-admin
 wget -O temp_drp_check --tries=1 $1/user
 wget -O temp_joom_check --tries=1 $1/administrator
 echo -e "\e[00;32m#########################################################\e[00m" 
-nmap -F --open -Pn $1
-echo -e "\e[00;32m#########################################################\e[00m" 
-theharvester -l 50 -b google -d $1
-echo -e "\e[00;32m#########################################################\e[00m" 
 dnsrecon -d $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 fierce -wordlist xxx -dns $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 dnswalk -d $1.
-echo -e "\e[00;32m#########################################################\e[00m" 
-whois $1
-echo -e "\e[00;32m#########################################################\e[00m" 
-nmap -p80 --script http-security-headers -Pn $1
-nmap -p80,443 --script http-slowloris --max-parallelism 500 -Pn $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 sslyze --heartbleed $1
 echo -e "\e[00;32m#########################################################\e[00m" 
@@ -75,8 +72,7 @@ sslyze --certinfo=basic $1
 sslyze --compression $1
 sslyze --reneg $1
 sslyze --resum $1
-echo -e "\e[00;32m#########################################################\e[00m" 
-lbd $1
+
 echo -e "\e[00;32m#########################################################\e[00m" 
 golismero -e dns_malware scan $1
 golismero -e heartbleed scan $1
@@ -137,8 +133,6 @@ nmap -p3306 --open -Pn $1
 nmap -p1521 --open -Pn $1
 nmap -p3389 --open -sU -Pn $1
 nmap -p3389 --open -sT -Pn $1
-nmap -p1-65535 --open -Pn $1
-nmap -p1-65535 -sU --open -Pn $1
 nmap -p161 -sU --open -Pn $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 wget -O temp_aspnet_elmah_axd --tries=1 $1/elmah.axd
@@ -150,4 +144,3 @@ wapiti $1 -f txt -o temp_wapiti
 echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p80 --script=http-iis-webdav-vuln -Pn $1
 echo -e "\e[00;32m#########################################################\e[00m" 
-
