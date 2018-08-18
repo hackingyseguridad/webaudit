@@ -14,10 +14,10 @@ cat << "INFO"
                _                     _ _ _   
               | |                   | (_) |  
  __      _____| |__   __ _ _   _  __| |_| |_ 
- \ \ /\ / / _ \ '_ \ / _` | | | |/ _` | | __|
+ \ \ /\ / / _ \ '_ \ / _` | | | |/ _` | | __| 
   \ V  V /  __/ |_) | (_| | |_| | (_| | | |_ 
-   \_/\_/ \___|_.__/ \__,_|\__,_|\__,_|_|\__|
-                       hackingyseguridad.con
+   \_/\_/ \___|_.__/ \__,_|\__,_|\__,_|_|\__| 1.0
+                        hackingyseguridad.con
 INFO
 
 if [ -z "$1" ]; then
@@ -36,11 +36,11 @@ echo -e "\e[00;32m# Informacion del host #######################################
 host $1
 echo -e "\e[00;32m# Indormacion del dominio ########################################################\e[00m" 
 whois $1
-echo -e "\e[00;32m# Escaneo de puertos web habituales ########################################################\e[00m" 
+echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m" 
 nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --script http-security-headers --open -sCV -O 
 echo -e "\e[00;32m# Informacion del servidor web ########################################################\e[00m" 
 whatweb $1
-echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Escaneo con Uniscan ########################################################\e[00m" 
 uniscan -e -u $1
 echo -e "\e[00;32m# Detecta firewall o balanceador ########################################################\e[00m" 
 lbd $1
@@ -48,12 +48,12 @@ echo -e "\e[00;32m# Detecta firewall WAF #######################################
 wafw00f $1
 echo -e "\e[00;32m# Informacion en internet ########################################################\e[00m" 
 theharvester -l 50 -b google -d $1
-echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Busqueda de recursos vulnerables ########################################################\e[00m" 
 wget -O temp_aspnet_config_err --tries=1 $1/%7C~.aspx
 wget -O temp_wp_check --tries=1 $1/wp-admin
 wget -O temp_drp_check --tries=1 $1/user
 wget -O temp_joom_check --tries=1 $1/administrator
-echo -e "\e[00;32m#########################################################\e[00m" 
+echo -e "\e[00;32m# Informacion dominio ########################################################\e[00m" 
 dnsrecon -d $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 fierce -wordlist xxx -dns $1
