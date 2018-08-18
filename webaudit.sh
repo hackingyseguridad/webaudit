@@ -120,19 +120,28 @@ echo
 echo -e "\e[00;32m#########################################################\e[00m" 
 echo
 echo -e "\e[00;32m#########################################################\e[00m" 
+echo
 dmitry -e $1
 dmitry -s $1
+echo
 echo -e "\e[00;32m#########################################################\e[00m" 
+echo
 davtest -url http://$1
+echo
 echo -e "\e[00;32m#########################################################\e[00m" 
+echo
 golismero -e fingerprint_web scan $1
+echo
 echo -e "\e[00;32m Vulnerabilidades con Uniscan #########################################################\e[00m" 
+echo
 uniscan -w -u $1
 uniscan -q -u $1
 uniscan -r -u $1
 uniscan -s -u $1
 uniscan -d -u $1
+echo
 echo -e "\e[00;32m# Vulnerabilidades con Nikto ########################################################\e[00m" 
+echo
 nikto -Plugins 'apache_expect_xss' -host $1
 nikto -Plugins 'subdomain' -host $1
 nikto -Plugins 'shellshock' -host $1
@@ -152,5 +161,6 @@ echo -e "\e[00;32m# Analisis con wapiti ########################################
 wapiti $1 -f txt -o temp_wapiti
 echo
 echo -e "\e[00;32m# Indormacion de registro del dominio ########################################################\e[00m" 
+echo
 whois $1
 echo
