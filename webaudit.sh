@@ -32,10 +32,12 @@ echo "==========================================="
 echo "test sobre la url.: $1"
 echo "==========================================="
 echo
-
+echo -e "\e[00;32m# Informacion del host ########################################################\e[00m" 
 host $1
-echo -e "\e[00;32m# Escaneo de puertos habituales ########################################################\e[00m" 
+echo -e "\e[00;32m# Escaneo de puertos web habituales ########################################################\e[00m" 
 nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --open -sCV -O 
+echo -e "\e[00;32m# Informacion del servidor web ########################################################\e[00m" 
+whatweb $1
 echo -e "\e[00;32m#########################################################\e[00m" 
 wget -O temp_aspnet_config_err --tries=1 $1/%7C~.aspx
 wget -O temp_wp_check --tries=1 $1/wp-admin
@@ -148,5 +150,4 @@ wapiti $1 -f txt -o temp_wapiti
 echo -e "\e[00;32m#########################################################\e[00m" 
 nmap -p80 --script=http-iis-webdav-vuln -Pn $1
 echo -e "\e[00;32m#########################################################\e[00m" 
-whatweb $1
-echo -e "\e[00;32m#########################################################\e[00m" 
+
