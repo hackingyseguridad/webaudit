@@ -52,6 +52,7 @@ echo
 uniscan -e -u $1
 echo
 echo -e "\e[00;32m# Detecta firewall o balanceador ########################################################\e[00m" 
+echo
 lbd $1
 echo
 echo -e "\e[00;32m# Detecta firewall WAF ########################################################\e[00m" 
