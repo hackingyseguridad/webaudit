@@ -34,10 +34,13 @@ echo "=============================================="
 echo
 echo -e "\e[00;32m# Informacion del host ########################################################\e[00m" 
 host $1
+echo
 echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m" 
+echo
 nmap $1 -Pn -p80,81,443,8000,8080,8081,8443,8888 --script http-enum --script http-security-headers --open -sCV -O 
+echo
 echo -e "\e[00;32m# Escaneo con Nmap de otros puertos  de servicio sensibles ########################################################\e[00m" 
-nmap $1 -Pn -sTUC -p21,22,23,25,53,139,161,389,443,554,445,631,966,1023,1433,1521,1723,1080,3306,3389,5900,10000 --open --max-retries 1 --defeat-rst-ratelimit
+echo nmap $1 -Pn -sTUC -p21,22,23,25,53,139,161,389,443,554,445,631,966,1023,1433,1521,1723,1080,3306,3389,5900,10000 --open --max-retries 1 --defeat-rst-ratelimit
 echo -e "\e[00;32m# Informacion del servidor web ########################################################\e[00m" 
 whatweb $1
 echo -e "\e[00;32m# Escaneo con Uniscan ########################################################\e[00m" 
