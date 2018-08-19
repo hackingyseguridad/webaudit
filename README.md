@@ -2,8 +2,7 @@
 
 analisis automatico de vulnerabilidades web
 
-Se requiere Kali Linux 2.2 o aplicaciones:
-
+Se requiere Kali Linux 2.2 o aplicaciones: 
 davtest
 dirb
 dmitry
