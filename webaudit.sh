@@ -17,7 +17,7 @@ cat << "INFO"
  \ \ /\ / / _ \ '_ \ / _` | | | |/ _` | | __| 
   \ V  V /  __/ |_) | (_| | |_| | (_| | | |_ 
    \_/\_/ \___|_.__/ \__,_|\__,_|\__,_|_|\__| 1.0
-                        hackingyseguridad.con
+             http://www.hackingyseguridad.con
 INFO
 
 if [ -z "$1" ]; then
