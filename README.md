@@ -1,8 +1,8 @@
 # webaudit.sh
 
-analisis automatico de vulnerabilidades web
+# analisis automatico de vulnerabilidades web
 
-Se requiere Kali Linux 2.2 o aplicaciones: 
+Se requiere Kali Linux con las aplicaciones: 
 davtest
 dirb
 dmitry
