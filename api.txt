@@ -1,18 +1,41 @@
-# Introduccion
+Diseño y/o securización de una API
+
+
+
+
+4.- 
+5.- Implantación de autenticación con certificados digitales 
+6.- WAF, cabeceras HTTP y suplantación IP origen
+7.- Protocolos cifrados ofrecidos y posibles para negociar
+8.- FW capa 4, ACL access list IP para filtrar consumo de API. Spoof IP
+9.- Rate limit, peticiones API
+10 .- DNS y API
+
+
+0.- Introduccion
 
 Tenemos los portales Web que son FrotEnd, al cual navegamnos con URL desde un navegador Web por HTTP y obtenemos información representada en formato pagina Web.
 Las API se suelen utilizar para obetener datos/informacion de un Backend, bien consultando a la API  por HTTP de forma directa con curl o POSTMAN o de forma  embebida en el codigo fuente de un portal web FrontEnd.
 
-# Tipos de API
+1.- Tipos de API, como funciona, tipo: REST, GraphQL, WebSocket, SOAP, JSON RPC, XML, HTTP, HTTPS.
 
 API SOAP es un protocolo de acceso a objetos simples, la trasferencia de datos es XML a traves de HTTPS
 
 API REST en una arquitectura, trasferencia de estado respresetacional. La trasferencia de datos es por XML o JSON
 
-# AUTENTICACION
+2.- Pruebas API con: Curl, POSTman, wget, apitest, ..
+
+3.- Metodos HTTP: GET, POST, PUT, DELETE, ..
+
+4.- Métodos de autenticación y autorización: Modo de envío de credenciales. Autorización Ouath2
+
+Una API puede ser:
 
 Publica, cualquiera puede consulta a la API si conoce la sintaxis y obtener inforamcion
-Privada, requiere autenticación o un token temporal, para poder obetener daots
+Privada, requiere autenticación con credenciales o un token temporal, para poder obetener daots
+
+Tras autenticarnos, normalmente con unas credenciales email/usuario y clave/password, se genera un clodigo Token, que nos servira para hacer llamadas a la API con el como forma de autenticacion
+
 
 
 
