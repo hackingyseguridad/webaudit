@@ -1,17 +1,5 @@
 Diseño y/o securización de una API
 
-
-
-
-4.- 
-5.- Implantación de autenticación con certificados digitales 
-6.- WAF, cabeceras HTTP y suplantación IP origen
-7.- Protocolos cifrados ofrecidos y posibles para negociar
-8.- FW capa 4, ACL access list IP para filtrar consumo de API. Spoof IP
-9.- Rate limit, peticiones API
-10 .- DNS y API
-
-
 0.- Introduccion
 
 Tenemos los portales Web que son FrotEnd, al cual navegamnos con URL desde un navegador Web por HTTP y obtenemos información representada en formato pagina Web.
@@ -37,6 +25,18 @@ Privada, requiere autenticación con credenciales o un token temporal, para pode
 
 Tras autenticarnos, normalmente con unas credenciales email/usuario y clave/password, se genera un clodigo Token, que nos servira para hacer llamadas a la API con el como forma de autenticacion
 
+5.- Implantación de autenticación con certificados digitales 
 
+
+
+6.- WAF, cabeceras HTTP y suplantación IP origen
+
+7.- Protocolos cifrados ofrecidos y posibles para negociar
+
+8.- FW capa 4, ACL access list IP para filtrar consumo de API. Spoof IP
+
+9.- Rate limit, peticiones API
+
+10 .- DNS y API
 
 
