@@ -16,6 +16,19 @@ API REST en una arquitectura, trasferencia de estado respresetacional. La trasfe
 
 3.- Metodos HTTP: GET, POST, PUT, DELETE, ..
 
+HTTP define una gran cantidad de métodos que son utilizados para diferentes circunstancias, por lo que trataremos de listar lo más relevantes y más utilizamos en la construcción de servicios REST, los métodos son los siguientes:
+
+GET: Es utilizado únicamente para consultar información al servidor, muy parecidos a realizar un SELECT a la base de datos. No soporta el envío del payload
+POST: Es utilizado para solicitar la creación de un nuevo registro, es decir, algo que no existía previamente, es decir, es equivalente a realizar un INSERT en la base de datos. Soporta el envío del payload.
+PUT: Se utiliza para actualizar por completo un registro existente, es decir, es parecido a realizar un UPDATE a la base de datos. Soporta el envío del payload.
+PATCH: Este método es similar al método PUT, pues permite actualizar un registro existente, sin embargo, este se utiliza cuando actualizar solo un fragmento del registro y no en su totalidad, es equivalente a realizar un UPDATE a la base de datos. Soporta el envío del payload
+DELETE: Este método se utiliza para eliminar un registro existente, es similar a DELETE a la base de datos. No soporta el envío del payload.
+HEAD: Este método se utilizar para obtener información sobre un determinado recurso sin retornar el registro. Este método se utiliza a menudo para probar la validez de los enlaces de hipertexto, la accesibilidad y las modificaciones recientes.
+Hasta aquí los métodos más utilizados en la construcción de servicios REST con JAX-RS, sin embargo, existen algunos métodos más que son interesantes conocer, pues no los encontraremos al momento de depurar o analizar el tráfico de red.
+CONNECT: Se utiliza para establecer una comunicación bidireccional con el servidor. En la práctica no es necesario ejecutarlo, si no el mismo API de HTTP se encarga de ejecutarlo para establecer la comunicación previo a lanzar alguna solicitud al servidor.
+OPTIONS: Este método es utilizado para describir las opciones de comunicación para el recurso de destino. Es muy utilizado con CORS (Cross-Origin Resource Sharing) para validar si el servidor acepta peticiones de diferentes origines.
+A pesar de que los métodos están diseñados para realizar ciertas acciones, la realidad es que nada impide que los utilices de forma errónea,
+
 4.- Métodos de autenticación y autorización: Modo de envío de credenciales. Autorización Ouath2
 
 Una API puede ser:
