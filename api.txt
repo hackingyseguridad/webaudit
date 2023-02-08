@@ -21,6 +21,9 @@ API REST en una arquitectura, trasferencia de estado respresetacional. La trasfe
 
 2.- Pruebas API con: Curl, POSTman, wget, apitest, ..
 
+comando curl en consola linux
+postman desde PC Windows
+
 3.- Servidor: Bastionado, actualizado con último parches estables, tanto si es Windows Server como Linux, sin permitir explorar carpetas, sin banners ni información del fingerprint de los servicios visibles ( p.ej version Apache(Linux) o IIS(WindowS)),  y sin otros servicios accesibles innecesarios, FTP, SSH, Telnet, puertos web de un Panel de Control, ..
 
 4º.- Certificado digital, emitido por una CA entidad certificadora de confianza; Conocidas las claves de  la CA /PKI por la mayoría de los navegadores web. 
