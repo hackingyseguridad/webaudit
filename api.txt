@@ -27,6 +27,34 @@ Puede existir autenticación por certificado, en el lado Servidor hemos creado u
 5.- Implantación de autenticación con certificados digitales 
 
 
+1º.- Servidor: Bastionado, actualizado con último parches estables, tanto si es Windows Server como Linux, sin permitir explorar carpetas, sin banners ni información del fingerprint de los servicios visibles ( p.ej versi´pn Apache o IIS),  y sin otros servicios accesibles innecesarios, FTP, SSH, Telnet, puertos web de un Panel de Control, ..
+
+2º.- Configurar cabeceras HTTP de seguridad en el servidor recomendadas: X-XSS-Protection, X-Content-Type-Option, Cache-Control, Strict-Transport-Security (HSTS), ..  y preferiblemente solo permitir métodos HTTP  POST
+
+3º.- Certificado digital, emitido por una CA entidad certificadora de confianza; Conocidas las claves de  la CA /PKI por la mayoría de los navegadores web. 
+
+4º.- Protocolos y cifrados recomendados. TLS 1.2, TLS 1.3 y cifrados de trasporte con AES > 128 ó superior y/o CHACHA20.
+
+5º.- Plantilla de nuestra web WordPress evitarla, pues tiene múltiples vulnerabilidades conocidas y nuevas. -  Evitar embeber “secretos” tokens o  credenciales , en claro o codificadas en el código de nuestra Web. Tampoco dejar anotaciones del programador o información que se suele añadir durante el desarrollo del portal.
+-	Si hay API s contra terceros, comprobar la información que exponen esas API, tokens, modo autenticación, información contenida en la sintaxis de la API, modo seguro estricto HTTPS, modo http GET, PUT, etc..
+-	Si hay llamadas o conexiones con recursos web de otros portales distintos ó de terceros, comprobar que información, el modo de comunicación, autenticación, ..
+
+6º.- Bibliotecas .JS JavaScript de terceros en la implementación del código del portal Web, utilizar las últimas versiones, comprobar vulnerabilidades conocidas de éstas y comprobar conexiones con otros recursos externos
+
+7º.- Autenticación: 
+- Autenticación local, no AAA; Utilizar credenciales seguras: mínimo 12 caracteres, recomendado 16, combinando letras,  números, alguna mayúscula y algún carácter especial, para dotarla de la máxima seguridad.
+- Usuarios no predecibles. Evitar utilizar usuarios del tipo: Admin, administrador, user, MWC, chema,  …
+- Implementar bloqueos temporales del usuario y/o IP origen, ante ataques de fuerza bruta.
+- Si no es un portal de acceso público, considerar filtrar con firewall  access-list, para que solo este accesible desde determinados direccionamiento origen.
+
+8º.- Formularios, ante la existencia de formularios de búsqueda, de login o para completar datos, ó conexión de nuestro portal con Bases de datos detrás, programar la Web para evitar XSS (Cross Site Scripting) y SQLi ataques de inyección
+
+9º.- WAF:  Considerar implementar un WAF, al menos durante los días del evento. Disponer de un BackUp del portal y un plan B, caso de caída o catástrofe con otro servidor en contingencia si no esta replicado en la plataforma de alojamiento donde vamos a publicar el portal web.  AntiDDoS: Considerar configurar alertas y  activar en la plataforma de AntiDDoS de Telefónica durante los días del evento.
+
+10º.- Hacer pruebas de carga;  si se ha configurado algún servicio de mitigación de ataques AntiDDoS hacer pruebas de alertas y mitigación previas,  hacer análisis hacking ético previo para comprobar que todo está acorde a  todo lo anterior.
+
+
+
 
 6.- WAF, cabeceras HTTP y suplantación IP origen
 
