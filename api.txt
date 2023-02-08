@@ -1,4 +1,8 @@
 
+Tenemos los portales Web que son FrotEnd, al cual navegamnos con URL desde un navegador Web por HTTP y obtenemos información representada en formato pagina Web.
+
+Las API se suelen utilizar para obetener datos/informacion de un Backend, bien consultando a la API  por HTTP de forma directa con curl o POSTMAN o de forma  embebida en el codigo fuente de un portal web FrontEnd.
+
 # Tipos de API
 
 API SOAP es un protocolo de acceso a objetos simples, la trasferencia de datos es XML a traves de HTTPS
