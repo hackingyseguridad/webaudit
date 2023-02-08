@@ -19,11 +19,10 @@ API REST en una arquitectura, trasferencia de estado respresetacional. La trasfe
 4.- Métodos de autenticación y autorización: Modo de envío de credenciales. Autorización Ouath2
 
 Una API puede ser:
-
 Publica, cualquiera puede consulta a la API si conoce la sintaxis y obtener inforamcion
 Privada, requiere autenticación con credenciales o un token temporal, para poder obetener daots
-
 Tras autenticarnos, normalmente con unas credenciales email/usuario y clave/password, se genera un clodigo Token, que nos servira para hacer llamadas a la API con el como forma de autenticacion
+Puede existir autenticación por certificado, en el lado Servidor hemos creado una clave privada y clave publica que solo es capaz de negociar con un cliente que tenga instalado un certificado, conozca la clave publica
 
 5.- Implantación de autenticación con certificados digitales 
 
