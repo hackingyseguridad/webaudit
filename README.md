@@ -1,6 +1,6 @@
 # webaudit.sh
 
-# analisis automatico de vulnerabilidades web
+# analisis automatico de vulnerabilidades api / web
 
 Se requiere Kali Linux con las aplicaciones: 
 davtest
