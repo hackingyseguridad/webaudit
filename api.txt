@@ -4,3 +4,11 @@
 API SOAP es un protocolo de acceso a objetos simples, la trasferencia de datos es XML a traves de HTTPS
 
 API REST en una arquitectura, trasferencia de estado respresetacional. La trasferencia de datos es por XML o JSON
+
+# AUTENTICACION
+
+Publica, cualquiera puede consulta a la API si conoce la sintaxis y obtener inforamcion
+Privada, requiere autenticación o un token temporal, para poder obetener daots
+
+
+
