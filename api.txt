@@ -4,13 +4,21 @@ Diseño y/o securización de una API
 
 Tenemos los portales Web que son frotal web (FrotEnd), al cual navegamnos con URL desde un navegador Web por HTTP y obtenemos información representada en formato pagina Web.
 
-cliente navegador -----/https/------- servidor Web https://www.hackingyseguridad.com/fichacliente.html?=606534642
+cliente navegador -----/https/------- servidor Web https://www.hackingyseguridad.com/fichacliente.html?=34606534642
 obtenemos respuesta en formato web
 
 Las API se suelen utilizar para obetener datos/informacion, atacamos al Frotend pero obtenemos datos del Backend a traves de AJAX, bien consultando a la API por HTTP de forma directa con curl o POSTMAN o de forma embebida en el codigo fuente HTML de un portal web FrontEnd.
 La mayoria de las aplicaciones APP o APK de los moviles, por detras utilizan APIs para subir o bajar datos de una infraestructura remota. ( Cliente-servidor )
 
-cliente curl ------/https/--------- servidor api https://api.hackingyseguridad.com/v1/consultatelefono?=34606534642/token=23214232323423
+cliente curl ------/https/--------- servidor api 
+https://api.hackingyseguridad.com/v1/consultatelefono?=34606534642/token=23214232323423
+Headers
+  Accept application/json
+  Content-Type: application/x-www-form-urlencoded
+  X-Method-Override:  GET
+Request Body:
+  action=finish&params={"orderNumber":"5","customerName":{"firstName":"John","lastName":"Doe"}}
+
 obtenemos respuesta Json
 
 1.- Tipos de API, como funciona, tipo: REST, GraphQL, WebSocket, SOAP, JSON RPC, XML, HTTP, HTTPS.
