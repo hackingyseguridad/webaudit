@@ -7,7 +7,7 @@ Tenemos los portales Web que son frotal web (FrotEnd), al cual navegamnos con UR
 cliente navegador -----/https/------- servidor Web https://www.hackingyseguridad.com/fichacliente.html?=606534642
 obtenemos respuesta en formato web
 
-Las API se suelen utilizar para obetener datos/informacion, atacamos al Frotend pero obtenemos datos de un Backend a traves de AJAX, bien consultando a la API por HTTP de forma directa con curl o POSTMAN o de forma embebida en el codigo fuente HTML de un portal web FrontEnd.
+Las API se suelen utilizar para obetener datos/informacion, atacamos al Frotend pero obtenemos datos del Backend a traves de AJAX, bien consultando a la API por HTTP de forma directa con curl o POSTMAN o de forma embebida en el codigo fuente HTML de un portal web FrontEnd.
 La mayoria de las aplicaciones APP o APK de los moviles, por detras utilizan APIs para subir o bajar datos de una infraestructura remota. ( Cliente-servidor )
 
 cliente curl ------/https/--------- servidor api https://api.hackingyseguridad.com/v1/consultatelefono?=34606534642/token=23214232323423
