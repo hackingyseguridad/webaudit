@@ -11,7 +11,7 @@ Las API se suelen utilizar para obetener datos/informacion, atacamos al Frotend 
 La mayoria de las aplicaciones APP o APK de los moviles, por detras utilizan APIs para subir o bajar datos de una infraestructura remota. ( Cliente-servidor )
 
 cliente curl ------/https/--------- servidor api URI
-https://api.hackingyseguridad.com/v1/consultatelefono?=34606534642/token=23214232323423
+https://api.hackingyseguridad.com:8080/api/rest/v1/consultatelefono?=34606534642/token=23214232323423
 Headers
   Accept application/json
   Content-Type: application/x-www-form-urlencoded
@@ -30,13 +30,14 @@ API REST en una arquitectura, trasferencia de estado respresetacional. La trasfe
 2.- Pruebas API con: Curl, POSTman, wget, apitest, ..
 
 comando curl en consola linux
-postman desde PC Windows
+postman https://www.postman.com/ desde PC Windows
 
-3.- Servidor: Bastionado, actualizado con último parches estables, tanto si es Windows Server como Linux, sin permitir explorar carpetas, sin banners ni información del fingerprint de los servicios visibles ( p.ej version Apache(Linux) o IIS(WindowS)),  y sin otros servicios accesibles innecesarios, FTP, SSH, Telnet, puertos web de un Panel de Control, ..
+3.- Servidor: Bastionado, actualizado con último parches estables, tanto si es Windows Server como Linux/UNIX, sin permitir en la conf explorar carpetas, sin banners ni información del fingerprint de los servicios visibles ( p.ej version Apache(Linux) o IIS(WindowS)), y sin otros servicios accesibles innecesarios, FTP, SSH, Telnet, puertos web de un Panel de Control, ..
 
 4º.- Certificado digital, emitido por una CA entidad certificadora de confianza; Conocidas las claves de  la CA /PKI por la mayoría de los navegadores web. 
 
 5º.- Protocolos y cifrados recomendados. TLS 1.2, TLS 1.3 y cifrados de trasporte con combinacines AES > 128 ó superior y/o CHACHA20.
+En las API el cifrado es vital, pues se podria interceptar todo el formato y datos que se envian y reciben
 
 6.- Metodos HTTP: GET, POST, PUT, DELETE, .. y configuracion de cabeceras de seguridad HTTP,
 
