@@ -23,9 +23,9 @@ obtenemos respuesta Json
 
 1.- Tipos de API, como funciona, tipo: REST, GraphQL, WebSocket, SOAP, JSON RPC, XML, HTTP, HTTPS.
 
-API SOAP es un protocolo de acceso a objetos simples, la trasferencia de datos es XML a traves de HTTPS
+API SOAP es un protocolo de acceso a objetos simples, la trasferencia de datos es XML a traves de HTTP/HTTPS
 
-API REST en una arquitectura, trasferencia de estado respresetacional. La trasferencia de datos es por XML o JSON
+API REST en una arquitectura, trasferencia de estado respresetacional. La trasferencia de datos es por XML o JSON, a traves de HTTP
 
 2.- Pruebas API con: Curl, POSTman, wget, apitest, ..
 
