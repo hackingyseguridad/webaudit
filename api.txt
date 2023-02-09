@@ -70,8 +70,8 @@ Tras autenticarnos, normalmente con unas credenciales email/usuario y clave/pass
 Puede existir autenticación por certificado, en el lado Servidor hemos creado una clave privada y clave publica que solo es capaz de negociar con un cliente que tenga instalado un certificado, conozca la clave publica
 - Autenticación WEB o API con credenciales usuario/crreo y clave/passwd, no AAA; utilizar credenciales seguras: mínimo 12 caracteres, recomendado 16, combinando letras,  números, alguna mayúscula y algún carácter especial, para dotarla de la máxima seguridad. - Usuarios no predecibles. Evitar utilizar usuarios del tipo: Admin, administrador, user, antonio, 1234, … - Implementar en WEB / API bloqueos temporales del usuario y/o IP origen, ante ataques de fuerza bruta. - Si no es un WEB / API de acceso público, considerar filtrar con firewall  access-list, para que solo este accesible desde determinados direccionamiento origen
 
-
-
+OAuth2 usando OpenID Connect
+ OAuth 2.0 , que significa "Autorización abierta", es un estándar diseñado para permitir que un sitio web o una aplicación acceda a los recursos alojados por otras aplicaciones web en nombre de un usuario. Como característica de seguridad adicional, a menudo es normal, según los estándares de seguridad de la industria, que las organizaciones deleguen la autorización y/o autenticación de sus API a IdP (proveedores de identidad) de terceros. Para reforzar aún más la seguridad, se puede agregar una capa de identidad adicional en forma de Open Id Connect, un estándar que amplía OAuth2 con tokens de identificación.
 
 8.- En el codigo de las paginas web evitar embeber APIs con “secretos” tokens o credenciales , en claro o codificadas en el código de nuestra Web. Tampoco dejar anotaciones del programador o información que se suele añadir durante el desarrollo del portal. -	Si hay API s contra terceros, comprobar la información que exponen esas API, tokens, modo autenticación, información contenida en la sintaxis de la API, modo seguro estricto HTTPS, modo http GET, PUT, etc.., comprobar que información, el modo de comunicación, autenticación, ..
 
