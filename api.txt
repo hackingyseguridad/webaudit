@@ -54,7 +54,7 @@ CONNECT: Se utiliza para establecer una comunicación bidireccional con el servi
 OPTIONS: Este método es utilizado para describir las opciones de comunicación para el recurso de destino. Es muy utilizado con CORS (Cross-Origin Resource Sharing) para validar si el servidor acepta peticiones de diferentes origines.
 A pesar de que los métodos están diseñados para realizar ciertas acciones, la realidad es que nada impide que los utilices de forma errónea,
 
-- la mayoria de los firewall WAF no permiten tráfico HTTP PUT ni DELETE a través del FW por seguridad. Permitirlo conlleva permitir PUT o delete para todo el servicio API/WEB - Para evitar esta restricción, por las necesidades de REST y sin necesitad de activar estos metodos explicitamente, se puede enviar estas solicitudes con las cabeceras:
+- la mayoria de los firewall WAF no permiten tráfico HTTP PUT ni DELETE por seguridad. Permitirlo conlleva permitir PUT o delete para todo el servicio API/WEB - Para evitar esta restricción, por las necesidades de REST y sin necesitad de activar estos metodos explicitamente, se puede enviar estas solicitudes con las cabeceras:
 HTTP X-Method-Override o X-HTTP-Method-Override para pasar una solicitud PUT o DELETE de forma embebida sobre metodo http POST.
 o x-method-override o x-http-method-override. 
 
