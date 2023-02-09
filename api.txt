@@ -54,9 +54,9 @@ CONNECT: Se utiliza para establecer una comunicación bidireccional con el servi
 OPTIONS: Este método es utilizado para describir las opciones de comunicación para el recurso de destino. Es muy utilizado con CORS (Cross-Origin Resource Sharing) para validar si el servidor acepta peticiones de diferentes origines.
 A pesar de que los métodos están diseñados para realizar ciertas acciones, la realidad es que nada impide que los utilices de forma errónea,
 
-Algunos cortafuegos no permiten tráfico HTTP PUT ni DELETE a través del cortafuegos debido a consideraciones de seguridad. Para adaptarse a esta restricción, puede enviar estas solicitudes de una de las maneras siguientes:
-Utilice los campos de cabecera HTTP X-Method-Override o X-HTTP-Method-Override para pasar una solicitud PUT o DELETE a través de una solicitud POST.
-Si la solicitud es para un recurso relacionado con BPD, puede utilizar los parámetros URI x-method-override o x-http-method-override. 
+Algunos firewall no permiten tráfico HTTP PUT ni DELETE a través del FW  por seguridad. Para evitar esta restricción, sin necesitad de activar estos metodos, puede enviar estas solicitudes con las cabeceras:
+HTTP X-Method-Override o X-HTTP-Method-Override para pasar una solicitud PUT o DELETE de forma embebida sobre metodo http POST.
+o x-method-override o x-http-method-override. 
 
 Configurar en el lado servidor cabeceras HTTP de seguridad en el servidor recomendadas: X-XSS-Protection, X-Content-Type-Option, Cache-Control, Strict-Transport-Security (HSTS), ..  
 
