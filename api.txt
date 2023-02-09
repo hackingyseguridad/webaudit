@@ -4,13 +4,13 @@ Diseño y/o securización de una API
 
 Tenemos los portales Web que son frotal web (FrotEnd), al cual navegamnos con URL desde un navegador Web por HTTP y obtenemos información representada en formato pagina Web.
 
-cliente navegador -----/https/------- servidor Web https://www.hackingyseguridad.com/fichacliente.html?=34606534642
+cliente navegador -----/https/------- servidor Web URL https://www.hackingyseguridad.com/fichacliente.html?=34606534642
 obtenemos respuesta en formato web
 
 Las API se suelen utilizar para obetener datos/informacion, atacamos al Frotend pero obtenemos datos del Backend a traves de AJAX, bien consultando a la API por HTTP de forma directa con curl o POSTMAN o de forma embebida en el codigo fuente HTML de un portal web FrontEnd.
 La mayoria de las aplicaciones APP o APK de los moviles, por detras utilizan APIs para subir o bajar datos de una infraestructura remota. ( Cliente-servidor )
 
-cliente curl ------/https/--------- servidor api 
+cliente curl ------/https/--------- servidor api URI
 https://api.hackingyseguridad.com/v1/consultatelefono?=34606534642/token=23214232323423
 Headers
   Accept application/json
@@ -52,6 +52,10 @@ Hasta aquí los métodos más utilizados en la construcción de servicios REST c
 CONNECT: Se utiliza para establecer una comunicación bidireccional con el servidor. En la práctica no es necesario ejecutarlo, si no el mismo API de HTTP se encarga de ejecutarlo para establecer la comunicación previo a lanzar alguna solicitud al servidor.
 OPTIONS: Este método es utilizado para describir las opciones de comunicación para el recurso de destino. Es muy utilizado con CORS (Cross-Origin Resource Sharing) para validar si el servidor acepta peticiones de diferentes origines.
 A pesar de que los métodos están diseñados para realizar ciertas acciones, la realidad es que nada impide que los utilices de forma errónea,
+
+Algunos cortafuegos no permiten tráfico HTTP PUT ni DELETE a través del cortafuegos debido a consideraciones de seguridad. Para adaptarse a esta restricción, puede enviar estas solicitudes de una de las maneras siguientes:
+Utilice los campos de cabecera HTTP X-Method-Override o X-HTTP-Method-Override para pasar una solicitud PUT o DELETE a través de una solicitud POST.
+Si la solicitud es para un recurso relacionado con BPD, puede utilizar los parámetros URI x-method-override o x-http-method-override. 
 
 Configurar en el lado servidor cabeceras HTTP de seguridad en el servidor recomendadas: X-XSS-Protection, X-Content-Type-Option, Cache-Control, Strict-Transport-Security (HSTS), ..  
 
