@@ -11,7 +11,7 @@ Las API se suelen utilizar para obetener datos/informacion, atacamos al Frotend 
 La mayoria de las aplicaciones APP o APK de los moviles, por detras utilizan APIs para subir o bajar datos de una infraestructura remota. ( Cliente-servidor )
 
 cliente curl ------/https/--------- servidor api URI
-curl -X PORT -k https://api.hackingyseguridad.com:8080/api/rest/v1/consultatelefono?=34606534642/token=23214232323423
+curl -X POST -k https://api.hackingyseguridad.com:8080/api/rest/v1/consultatelefono?=34606534642/token=23214232323423
 Headers
   Accept application/json
   Content-Type: application/x-www-form-urlencoded
@@ -75,7 +75,9 @@ Puede existir autenticación por certificado, en el lado Servidor hemos creado u
 Firewall capa 4, ACL access list IP para filtrar consumo de API. Spoof IP, Rate limit, peticiones API
 Disponer de un BackUp del portal y un plan B, caso de caída o catástrofe con otro servidor en contingencia si no esta replicado en la plataforma de alojamiento donde vamos a publicar el portal web/api.  AntiDDoS: Considerar configurar alertas y  activar en la plataforma de AntiDDoS.
 
-curl -k -s --http1.0 -vvv $1 -X "TRACE" \
+curl -X POST --http1.0 -vvv -k https://api.hackingyseguridad.com:8080/api/rest/v1/consultatelefono?=34606534642/token=23214232323423
+-H "Accept application/json"
+-H "Content-Type: application/x-www-form-urlencoded"
 -H "X-Custom-IP-Authorization: 127.0.0.1" \
 -H "X-HTTP-Method-Override: ACL" \
 -H "X-Originating-IP: 127.0.0.1" \
@@ -90,7 +92,9 @@ curl -k -s --http1.0 -vvv $1 -X "TRACE" \
 -H "Accept: text/html, applicattion/xhtml+xml, application/xml;q=0.9,*/*;q=0.8" \
 -H "Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" \
 -H "Connection: keep-alive" \
--H 'X-Method-Override: ARBITRARY' \
+-H 'X-Method-Override: PUT' \
+-H "Request Body:
+action=finish&params={"orderNumber":"5","customerName":{"firstName":"Antonio","lastName":"Taboada"}}
 
 10º.- Hacer pruebas de carga;  si se ha configurado algún servicio de mitigación de ataques AntiDDoS hacer pruebas de alertas y mitigación previas,  hacer análisis hacking ético previo para comprobar que todo está acorde a  todo lo anterior.
 
