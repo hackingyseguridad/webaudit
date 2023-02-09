@@ -75,6 +75,23 @@ Puede existir autenticación por certificado, en el lado Servidor hemos creado u
 Firewall capa 4, ACL access list IP para filtrar consumo de API. Spoof IP, Rate limit, peticiones API
 Disponer de un BackUp del portal y un plan B, caso de caída o catástrofe con otro servidor en contingencia si no esta replicado en la plataforma de alojamiento donde vamos a publicar el portal web/api.  AntiDDoS: Considerar configurar alertas y  activar en la plataforma de AntiDDoS.
 
+curl -k -s --http1.0 -vvv $1 -X "TRACE" \
+-H "X-Custom-IP-Authorization: 127.0.0.1" \
+-H "X-HTTP-Method-Override: ACL" \
+-H "X-Originating-IP: 127.0.0.1" \
+-H "X-Forwarded-For: 127.0.0.1" \
+-H "X-Forwarded-Host: 127.0.0.1" \
+-H "X-Forwared-Host: 127.0.0.1" \
+-H "X-Real-IP: 127.0.0.1" \
+-H "X-Remote-IP: 127.0.0.1" \
+-H "X-Remote-Addr: 127.0.0.1" \
+-H "X-Client-IP: 127.0.0.1" \
+-H "User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:62.0) Gecko/20100101 Firefox/62.0" \
+-H "Accept: text/html, applicattion/xhtml+xml, application/xml;q=0.9,*/*;q=0.8" \
+-H "Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3" \
+-H "Connection: keep-alive" \
+-H 'X-Method-Override: ARBITRARY' \
+
 10º.- Hacer pruebas de carga;  si se ha configurado algún servicio de mitigación de ataques AntiDDoS hacer pruebas de alertas y mitigación previas,  hacer análisis hacking ético previo para comprobar que todo está acorde a  todo lo anterior.
 
 10 .- DNS y API
