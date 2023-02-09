@@ -41,7 +41,7 @@ En las API el cifrado es vital, pues se podria interceptar todo el formato y dat
 
 6.- Metodos HTTP: GET, POST, PUT, DELETE, .. y configuracion de cabeceras de seguridad HTTP,
 
-HTTP define una gran cantidad de métodos que son utilizados para diferentes circunstancias, por lo que trataremos de listar lo más relevantes y más utilizamos en la construcción de servicios REST, los métodos son los siguientes:
+HTTP define una gran cantidad de métodos utilizamos en la construcción de servicios REST:
 
 GET: Es utilizado únicamente para consultar información al servidor, muy parecidos a realizar un SELECT a la base de datos. No soporta el envío del payload
 POST: Es utilizado para solicitar la creación de un nuevo registro, es decir, algo que no existía previamente, es decir, es equivalente a realizar un INSERT en la base de datos. Soporta el envío del payload.
