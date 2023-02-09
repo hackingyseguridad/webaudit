@@ -96,8 +96,7 @@ curl -X POST --http1.0 -vvv -k https://api.hackingyseguridad.com:8080/api/rest/v
 -H "Request Body:
 action=finish&params={"orderNumber":"5","customerName":{"firstName":"Antonio","lastName":"Taboada"}}
 
-10º.- Hacer pruebas de carga;  si se ha configurado algún servicio de mitigación de ataques AntiDDoS hacer pruebas de alertas y mitigación previas,  hacer análisis hacking ético previo para comprobar que todo está acorde a  todo lo anterior.
+10º.- Hacer pruebas de carga;  si se ha configurado algún servicio de mitigación de ataques AntiDDoS hacer pruebas de alertas y mitigación previas,  hacer análisis hacking ético previo para comprobar que todo está acorde a todo lo descrito anterior.
 
-10 .- DNS y API
 
 
