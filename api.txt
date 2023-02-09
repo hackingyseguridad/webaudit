@@ -58,7 +58,7 @@ A pesar de que los métodos están diseñados para realizar ciertas acciones, la
 HTTP X-Method-Override o X-HTTP-Method-Override para pasar una solicitud PUT o DELETE de forma embebida sobre metodo http POST.
 o x-method-override o x-http-method-override. 
 
-Configurar en el lado servidor cabeceras HTTP de seguridad en el servidor recomendadas: X-XSS-Protection, X-Content-Type-Option, Cache-Control, Strict-Transport-Security (HSTS), ..  
+Configurar en el lado servidor cabeceras HTTP de seguridad en el servidor recomendadas: Strict-Transport-Security (HSTS), X-XSS-Protection, X-Content-Type-Option, Cache-Control, ..  
 
 7.- Métodos de autenticación y autorización: Modo de envío de credenciales. Autorización Ouath2
 
@@ -67,16 +67,9 @@ Publica, cualquiera puede consulta a la API si conoce la sintaxis y obtener info
 Privada, requiere autenticación con credenciales o un token temporal, para poder obetener daots
 Tras autenticarnos, normalmente con unas credenciales email/usuario y clave/password, se genera un clodigo Token, que nos servira para hacer llamadas a la API con el como forma de autenticacion
 Puede existir autenticación por certificado, en el lado Servidor hemos creado una clave privada y clave publica que solo es capaz de negociar con un cliente que tenga instalado un certificado, conozca la clave publica
+- Autenticación WEB o API con credenciales usuario/crreo y clave/passwd, no AAA; utilizar credenciales seguras: mínimo 12 caracteres, recomendado 16, combinando letras,  números, alguna mayúscula y algún carácter especial, para dotarla de la máxima seguridad. - Usuarios no predecibles. Evitar utilizar usuarios del tipo: Admin, administrador, user, antonio, 1234, … - Implementar en WEB / API bloqueos temporales del usuario y/o IP origen, ante ataques de fuerza bruta. - Si no es un WEB / API de acceso público, considerar filtrar con firewall  access-list, para que solo este accesible desde determinados direccionamiento origen
 
-- Autenticación local, no AAA; Utilizar credenciales seguras: mínimo 12 caracteres, recomendado 16, combinando letras,  números, alguna mayúscula y algún carácter especial, para dotarla de la máxima seguridad.
-- Usuarios no predecibles. Evitar utilizar usuarios del tipo: Admin, administrador, user, MWC, chema,  …
-- Implementar bloqueos temporales del usuario y/o IP origen, ante ataques de fuerza bruta.
-- Si no es un portal de acceso público, considerar filtrar con firewall  access-list, para que solo este accesible desde determinados direccionamiento origen
-
-
-8.- En el codigo Web evitar embeber “secretos” tokens o  credenciales , en claro o codificadas en el código de nuestra Web. Tampoco dejar anotaciones del programador o información que se suele añadir durante el desarrollo del portal.
--	Si hay API s contra terceros, comprobar la información que exponen esas API, tokens, modo autenticación, información contenida en la sintaxis de la API, modo seguro estricto HTTPS, modo http GET, PUT, etc..
--	Si hay llamadas o conexiones con recursos web de otros portales distintos ó de terceros, comprobar que información, el modo de comunicación, autenticación, ..
+8.- En el codigo de las paginas web evitar embeber APIs con “secretos” tokens o credenciales , en claro o codificadas en el código de nuestra Web. Tampoco dejar anotaciones del programador o información que se suele añadir durante el desarrollo del portal. -	Si hay API s contra terceros, comprobar la información que exponen esas API, tokens, modo autenticación, información contenida en la sintaxis de la API, modo seguro estricto HTTPS, modo http GET, PUT, etc.., comprobar que información, el modo de comunicación, autenticación, ..
 
 9.- WAF:  Considerar implementar un WAF, al menos durante los días del evento. Disponer de un BackUp del portal y un plan B, caso de caída o catástrofe con otro servidor en contingencia si no esta replicado en la plataforma de alojamiento donde vamos a publicar el portal web.  AntiDDoS: Considerar configurar alertas y  activar en la plataforma de AntiDDoS de Telefónica durante los días del evento.
 WAF, cabeceras HTTP y suplantación IP origen
