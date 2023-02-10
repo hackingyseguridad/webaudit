@@ -2,7 +2,7 @@ Diseño y/o securización de una API
 
 0.- Introduccion
 
-Tenemos los portales Web que son frotal web (FrotEnd), al cual navegamnos con URL desde un navegador Web por HTTP y obtenemos información representada en formato pagina Web.
+Tenemos los portales Web que son frotal web (FrontEnd), al cual navegamnos con URL desde un navegador Web por HTTP y obtenemos información representada en formato pagina Web.
 
 cliente navegador -----/https/------- servidor Web URL https://www.hackingyseguridad.com/fichacliente.html?=34606534642
 obtenemos respuesta en formato web
