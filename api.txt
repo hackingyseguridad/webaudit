@@ -8,10 +8,11 @@ Tenemos los portales Web que son frotal web (FrontEnd), al cual navegamnos con U
 cliente navegador -----/https/------- servidor Web URL https://www.hackingyseguridad.com/fichacliente.html?=34606534642
 obtenemos respuesta en formato web
 
-Las API se suelen utilizar para obetener datos/informacion, atacamos al Frotend pero obtenemos datos del Backend a traves de AJAX, bien consultando a la API por HTTP de forma directa con curl o POSTMAN o de forma embebida en el codigo fuente HTML de un portal web FrontEnd.
-La mayoria de las aplicaciones APP o APK de los moviles, por detras utilizan APIs para subir o bajar datos de una infraestructura remota. ( Cliente-servidor )
+Las API se suelen utilizar para obetener datos/informacion, atacamos al Frontend pero obtenemos datos que obtenemos son de Backend a traves de conxector AJAX; bien consultando a la API por HTTP de forma directa con comando curl,  APP POSTMAN, o de forma embebida en el codigo fuente HTML de un portal web FrontEnd.
+La mayoria de las aplicaciones actuales APP ó APK de los moviles, por detras utilizan APIs para subir o bajar datos de una infraestructura remota. ( modelo Cliente - servidor )
 
 cliente curl ------/https/--------- servidor api URI
+
 curl -X POST -k https://api.hackingyseguridad.com:8080/api/rest/v1/consultatelefono?=34606534642/token=23214232323423
 Headers
   Accept application/json
