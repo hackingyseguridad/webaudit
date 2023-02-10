@@ -40,7 +40,7 @@ host $1
 echo
 echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m" 
 echo
-nmap $1 -Pn -p80,81,443,4443,8000,8080,8081,8443,8888 --script http-enum --script http-security-headers --script=http-iis-webdav-vuln --open -sCV -O 
+nmap $1 -Pn -p80,81,443,4443,8000,8080,8081,8443,8888 --script http-enum --script http-security-headers --script=http-methods --open -sCV -O 
 echo
 echo -e "\e[00;32m# Escaneo con Nmap de otros puertos  de servicio sensibles ########################################################\e[00m" 
 echo
