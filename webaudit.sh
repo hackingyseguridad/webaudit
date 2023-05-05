@@ -49,6 +49,8 @@ echo
 echo -e "\e[00;32m# Informacion del servidor web ########################################################\e[00m" 
 echo
 whatweb $1
+HEAD $1
+curl -I $1
 echo
 echo -e "\e[00;32m# Escaneo con Uniscan ########################################################\e[00m" 
 echo
