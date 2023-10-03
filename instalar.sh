@@ -6,3 +6,4 @@ git clone https://github.com/golismero/golismero.git
 cd golismero
 pip install -r requirements.txt
 cd ..
+wget https://raw.githubusercontent.com/hackingyseguridad/fuzzer/master/diccionario.txt -q -O diccionario.txt
