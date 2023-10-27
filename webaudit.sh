@@ -38,6 +38,8 @@ echo -e "\e[00;32m# Informacion del host #######################################
 echo
 host $1
 echo
+curl -Is --http2-prior-knowledge $1 | head -1
+echo
 echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m" 
 echo
 nmap $1 -Pn -p80,81,443,4443,7443,8000,8080,8081,8443,8888 --script=http-enum --script=http-security-headers --script=http-methods --open -sCV -O
