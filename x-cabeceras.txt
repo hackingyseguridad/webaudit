@@ -39,6 +39,12 @@ Header set Referrer-Policy "no-referrer"
 Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos: 
 Activar Headers
 #sudo a2enmod headers
+
+Conorprobar si estan funcionando las cabeceras
+grep -n 'mod_headers'/etc/apache2/apache2.conf
+apachectl -M | headers
+apache2ctl -M | grep headers
+
 Editar fichero apache.conf o /etc/apache2/conf-available/security.conf
 #vi /etc/apache2/conf-available/security.conf
 
