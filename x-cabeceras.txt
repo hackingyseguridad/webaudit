@@ -1,27 +1,19 @@
 x-cabeceras, los X-Headers son una forma de agregar información adicional a las respuestas HTTP de un servidor web. Esta información puede ser utilizada para mejorar la seguridad del sitio web, proteger contra ataques y mejorar la experiencia del usuario.
 
-Ubicación de los archivos de configuración para Apache 2.4.x, de las cabeceras X-Header de seguridad:
+1º.- Ubicación de los archivos de configuración para Apache 2.4.x, de las cabeceras X-Header de seguridad:
 /etc/apache2/apache2.conf
 /etc/apache2/conf-available/security.conf
 
-# Habilitar en Apache 2.4.x módulo headers, mod_headers: 
+2º.- Habilitar en Apache 2.4.x módulo headers, mod_headers: 
 El módulo mod_headers es necesario para agregar X-Headers a las respuestas HTTP. Para habilitarlo, edite el archivo de configuración principal de Apache (/etc/apache2/apache2.conf para Apache 2.4 o /etc/apache2/conf.d/security para Apache 2.2) y busque la siguiente línea:
 LoadModule headers_module modules/mod_headers.so
 
-# Establecer X-XSS-Protection
-Header set X-XSS-Protection "1; mode=block"
-
-# Establecer X-Frame-Options
-Header set X-Frame-Options "SAMEORIGIN"
-
-# Establecer X-Content-Type-Options
-Header set X-Content-Type-Options "nosniff"
-
-# Establecer HSTS
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
-# Establecer CSP
-Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://ajax.googleapis.com; style-src 'self' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com"
+3º.- Cabeceras X-Header más comunes: 
+Header set X-XSS-Protection "1; mode=block"   # Establecer X-XSS-Protection
+Header set X-Frame-Options "SAMEORIGIN"  # Establecer X-Frame-Options
+Header set X-Content-Type-Options "nosniff"  # Establecer X-Content-Type-Options
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"  # Establecer HSTS
+Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://ajax.googleapis.com; style-src 'self' https://fonts.googleapis.com; img-src 'self'  data:; font-src 'self' https://fonts.gstatic.com"  # Establecer CSP
 
 # Establecer Referrer-Policy
 Header set Referrer-Policy "no-referrer"
