@@ -41,7 +41,8 @@ Activar Headers
 #sudo a2enmod headers
 
 Conorprobar si estan funcionando las cabeceras
-grep -n 'mod_headers'/etc/apache2/apache2.conf
+cat /etc/apache2/apache2.conf |grep mod_headers
+cat /etc/apache2/conf-available/security.conf |grep mod_headers
 apachectl -M | headers
 apache2ctl -M | grep headers
 
