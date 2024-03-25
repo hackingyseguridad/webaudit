@@ -1,10 +1,6 @@
 x-cabeceras, los X-Headers son una forma de agregar información adicional a las respuestas HTTP de un servidor web. Esta información puede ser utilizada para mejorar la seguridad del sitio web, proteger contra ataques y mejorar la experiencia del usuario.
 
-Archivos de configuración X-Header de seguridad para Apache2
-
-Ubicación de los archivos:
-
-Los archivos de configuración X-Header de seguridad para Apache2 se encuentran en:
+Ubicación de los archivos de configuración X-Header de seguridad para Apache2:
 
 Apache 2.4: /etc/apache2/apache2.conf
 Apache 2.2: /etc/apache2/conf.d/security
