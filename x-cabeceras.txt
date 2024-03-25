@@ -60,6 +60,7 @@ Editar fichero apache.conf o /etc/apache2/conf-available/security.conf
   SetEnv modHeadersAvailable true
 </IfModule>
 
+Ejemplos de X-cabeceras: 
 Header set X-Content-Type-Options: "nosniff"
 Header set Content-Security-Policy "frame-ancestors 'self';"
 Header set X-XSS-Protection "1; mode=block"
@@ -74,6 +75,7 @@ Header always unset "X-Pingback"
 Header always unset "X-CF-Powered-By"
 Header always unset "X-Mod-Pagespeed"
 Header set Feature-Policy: geolocation 'self' https://hackingyseguridad.es; microphone 'none'
+Header set Permissions-Policy: geolocation=()
 
 Reinicializar Apache y aplicar cambios:
 #systemctl restart apache2
