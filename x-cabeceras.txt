@@ -14,21 +14,19 @@ Header set X-Frame-Options "SAMEORIGIN"  # Establecer X-Frame-Options
 Header set X-Content-Type-Options "nosniff"  # Establecer X-Content-Type-Options
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"  # Establecer HSTS
 Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://ajax.googleapis.com; style-src 'self' https://fonts.googleapis.com; img-src 'self'  data:; font-src 'self' https://fonts.gstatic.com"  # Establecer CSP
+Header set Referrer-Policy "no-referrer" # Establecer Referrer-Policy
 
-# Establecer Referrer-Policy
-Header set Referrer-Policy "no-referrer"
-
-Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos: 
+4º.- Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos: 
 Activar Headers
 #sudo a2enmod headers
 
-Conorprobar si estan funcionando las cabeceras
+5º.- Conorprobar si estan funcionando las cabeceras
 cat /etc/apache2/apache2.conf |grep mod_headers
 cat /etc/apache2/conf-available/security.conf |grep mod_headers
 apachectl -M | headers
 apache2ctl -M | grep headers
 
-Editar fichero apache.conf o /etc/apache2/conf-available/security.conf
+6º.- Editar fichero apache.conf o /etc/apache2/conf-available/security.conf
 #vim /etc/apache2/conf-available/security.conf
 <IfModule mod_headers.c>
   # X-headers
@@ -59,7 +57,7 @@ Header always unset "X-Mod-Pagespeed"
 Header set Feature-Policy: geolocation 'self' https://hackingyseguridad.es; microphone 'none'
 Header set Permissions-Policy: geolocation=()
 
-Reinicializar Apache y aplicar cambios:
+7º.- Reinicializar Apache y aplicar cambios:
 #systemctl restart apache2
 #service apache2 restart
 
