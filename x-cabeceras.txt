@@ -36,9 +36,28 @@ Header set Content-Security-Policy "default-src 'self'; script-src 'self' https:
 # Establecer Referrer-Policy
 Header set Referrer-Policy "no-referrer"
 
-Configurar las directivas X-Header:
+Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos: 
 
+#vi /etc/apache2/conf-available/security.conf
+
+Header set X-Content-Type-Options: "nosniff"
+Header set Content-Security-Policy "frame-ancestors 'self';"
 Header set X-XSS-Protection "1; mode=block"
+Header set x-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header set Content-Security-Policy "default-src 'self'; font-src *;img-src * data:; script-src *; style-src *;"
+Header set Referrer-Policy "strict-origin"
+
+
+Header edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+Header set X-Permitted-Cross-Domain-Policies "none"
+Header unset "X-Powered-By"
+Header always unset "X-Powered-By"
+Header always unset "X-Pingback"
+Header always unset "X-CF-Powered-By"
+Header always unset "X-Mod-Pagespeed"
+
 
 
 
