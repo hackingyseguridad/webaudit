@@ -37,7 +37,9 @@ Header set Content-Security-Policy "default-src 'self'; script-src 'self' https:
 Header set Referrer-Policy "no-referrer"
 
 Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos: 
-
+Activar Headers
+#sudo a2enmod headers
+Editar fichero apache.conf o /etc/apache2/conf-available/security.conf
 #vi /etc/apache2/conf-available/security.conf
 
 Header set X-Content-Type-Options: "nosniff"
