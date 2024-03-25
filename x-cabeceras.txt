@@ -76,8 +76,6 @@ Header always unset "X-Mod-Pagespeed"
 Header set Feature-Policy: geolocation 'self' https://hackingyseguridad.es; microphone 'none'
 
 Reinicializar Apache y aplicar cambios:
-
-#sudo systemctl restart apache2
-
-
+#systemctl restart apache2
+#service apache2 restart
 
