@@ -4,16 +4,7 @@ Ubicación de los archivos de configuración para Apache 2.4.x, de las cabeceras
 /etc/apache2/apache2.conf
 /etc/apache2/conf-available/security.conf
 
-X-Header más comunes:
-X-XSS-Protection: Protege contra ataques de secuencias de comandos entre sitios (XSS).
-X-Frame-Options: Protege contra ataques de clickjacking.
-X-Content-Type-Options: Protege contra MIME sniffing.
-Strict-Transport-Security (HSTS): Obliga a los navegadores a usar HTTPS para acceder al sitio web.
-Content-Security-Policy (CSP): Define qué recursos pueden cargar los navegadores desde un sitio web.
-Referrer-Policy: Controla cómo se envía la información del referrer a otros sitios web.
-
-Apache
-# Habilitar módulo headers, mod_headers: 
+# Habilitar en Apache 2.4.x módulo headers, mod_headers: 
 El módulo mod_headers es necesario para agregar X-Headers a las respuestas HTTP. Para habilitarlo, edite el archivo de configuración principal de Apache (/etc/apache2/apache2.conf para Apache 2.4 o /etc/apache2/conf.d/security para Apache 2.2) y busque la siguiente línea:
 LoadModule headers_module modules/mod_headers.so
 
@@ -46,12 +37,11 @@ apachectl -M | headers
 apache2ctl -M | grep headers
 
 Editar fichero apache.conf o /etc/apache2/conf-available/security.conf
-#vi /etc/apache2/conf-available/security.conf
-
+#vim /etc/apache2/conf-available/security.conf
 <IfModule mod_headers.c>
   # X-headers
   Header set Content-Security-Policy "default-src 'self'; upgrade-insecure-requests;"
-  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+# Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
   Header always edit Set-Cookie (.*) "$1; HttpOnly; Secure"
   Header set X-Content-Type-Options "nosniff"
   Header set X-XSS-Protection "1; mode=block"
