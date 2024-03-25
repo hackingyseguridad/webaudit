@@ -37,6 +37,7 @@ Header set Content-Security-Policy "default-src 'self'; script-src 'self' https:
 Header set Referrer-Policy "no-referrer"
 
 Configurar las directivas X-Header:
+
 Header set X-XSS-Protection "1; mode=block"
 
 
