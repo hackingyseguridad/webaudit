@@ -57,5 +57,7 @@ Header always unset "X-CF-Powered-By"
 Header always unset "X-Mod-Pagespeed"
 
 
+#sudo systemctl restart apache2
+
 
 
