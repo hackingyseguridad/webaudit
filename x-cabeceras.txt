@@ -12,9 +12,9 @@ LoadModule headers_module modules/mod_headers.so
 Header set X-XSS-Protection "1; mode=block"   # Protege contra ataques de secuencias de comandos entre sitios (XSS).
 Header set X-Frame-Options "SAMEORIGIN"  # Protege contra ataques de clickjacking.
 Header set X-Content-Type-Options "nosniff"  # Protege contra MIME sniffing.
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"  # Establecer HSTS
-Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://ajax.googleapis.com; style-src 'self' https://fonts.googleapis.com; img-src 'self'  data:; font-src 'self' https://fonts.gstatic.com"  # Establecer CSP
-Header set Referrer-Policy "no-referrer" # Establecer Referrer-Policy
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"  # Obliga a los navegadores a usar HTTPS para acceder al sitio web.
+Header set Content-Security-Policy "default-src 'self' # Define qué recursos pueden cargar los navegadores desde un sitio web.
+Header set Referrer-Policy "no-referrer" # Controla cómo se envía la información del referrer a otros sitios web.
 
 4º.- Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos: 
 Activar Headers
