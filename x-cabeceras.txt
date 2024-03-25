@@ -5,11 +5,6 @@ Ubicación de los archivos de configuración X-Header de seguridad para Apache2:
 Apache 2.4: /etc/apache2/apache2.conf
 Apache 2.2: /etc/apache2/conf.d/security
 
-Habilitar el módulo mod_headers: 
-El módulo mod_headers es necesario para agregar X-Headers a las respuestas HTTP. Para habilitarlo, edite el archivo de configuración principal de Apache (/etc/apache2/apache2.conf para Apache 2.4 o /etc/apache2/conf.d/security para Apache 2.2) y busque la siguiente línea:
-LoadModule headers_module modules/mod_headers.so
-
-
 X-Header más comunes:
 X-XSS-Protection: Protege contra ataques de secuencias de comandos entre sitios (XSS).
 X-Frame-Options: Protege contra ataques de clickjacking.
@@ -18,14 +13,9 @@ Strict-Transport-Security (HSTS): Obliga a los navegadores a usar HTTPS para acc
 Content-Security-Policy (CSP): Define qué recursos pueden cargar los navegadores desde un sitio web.
 Referrer-Policy: Controla cómo se envía la información del referrer a otros sitios web.
 
-
-Configurar las directivas X-Header:
-Header set X-XSS-Protection "1; mode=block"
-
-
-
 Apache
-# Habilitar módulo headers
+# Habilitar módulo headers, mod_headers: 
+El módulo mod_headers es necesario para agregar X-Headers a las respuestas HTTP. Para habilitarlo, edite el archivo de configuración principal de Apache (/etc/apache2/apache2.conf para Apache 2.4 o /etc/apache2/conf.d/security para Apache 2.2) y busque la siguiente línea:
 LoadModule headers_module modules/mod_headers.so
 
 # Establecer X-XSS-Protection
@@ -45,4 +35,9 @@ Header set Content-Security-Policy "default-src 'self'; script-src 'self' https:
 
 # Establecer Referrer-Policy
 Header set Referrer-Policy "no-referrer"
+
+Configurar las directivas X-Header:
+Header set X-XSS-Protection "1; mode=block"
+
+
 
