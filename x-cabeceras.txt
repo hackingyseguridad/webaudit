@@ -56,6 +56,7 @@ Header always unset "X-Pingback"
 Header always unset "X-CF-Powered-By"
 Header always unset "X-Mod-Pagespeed"
 
+Reinicializar Apache y aplicar cambios:
 
 #sudo systemctl restart apache2
 
