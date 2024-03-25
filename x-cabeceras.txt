@@ -40,7 +40,7 @@ apache2ctl -M | grep headers
   SetEnv modHeadersAvailable true
 </IfModule>
 
-Ejemplos de X-cabeceras: 
++ ejemplos de X-cabeceras: 
 Header set X-Content-Type-Options: "nosniff"
 Header set Content-Security-Policy "frame-ancestors 'self';"
 Header set X-XSS-Protection "1; mode=block"
@@ -58,6 +58,6 @@ Header set Feature-Policy: geolocation 'self' https://hackingyseguridad.es; micr
 Header set Permissions-Policy: geolocation=()
 
 7º.- Reinicializar Apache y aplicar cambios:
-#systemctl restart apache2
-#service apache2 restart
+systemctl restart apache2
+service apache2 restart
 
