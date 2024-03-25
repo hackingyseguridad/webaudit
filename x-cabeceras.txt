@@ -3,7 +3,7 @@ x-cabeceras, los X-Headers son una forma de agregar información adicional a las
 Ubicación de los archivos de configuración X-Header de seguridad para Apache2:
 
 Apache 2.4: /etc/apache2/apache2.conf
-Apache 2.2: /etc/apache2/conf.d/security
+Apache 2.4: /etc/apache2/conf-available/security.conf
 
 X-Header más comunes:
 X-XSS-Protection: Protege contra ataques de secuencias de comandos entre sitios (XSS).
