@@ -18,9 +18,8 @@ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains
 Header set Content-Security-Policy "default-src 'self' # Define qué recursos pueden cargar los navegadores desde un sitio web.
 Header set Referrer-Policy "no-referrer" # Controla cómo se envía la información del referrer a otros sitios web.
 
-4º.- Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos: 
-Activar Headers
-#sudo a2enmod headers
+4º.- Configurar las directivas X-Header; Para Apache 2.4 editamos el fichero security.conf y añadimos;  Activar Headers:
+sudo a2enmod headers
 
 5º.- Conorprobar si estan funcionando las cabeceras
 cat /etc/apache2/apache2.conf |grep mod_headers
