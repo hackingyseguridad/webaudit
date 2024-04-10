@@ -70,9 +70,9 @@ echo -e "\e[00;32m# Informacion en internet ####################################
 echo
 theharvester -l 50 -b google -d $1
 echo
-
 echo
 echo -e "\e[00;32m# SQLi ########################################################\e[00m" 
+echo
 sqlmap -u 'http://$1' --crawl=3 --random-agent --batch --forms --threads=5 --hostname --timeout=15 --retries=1 --time-sec 12
 echo
 echo -e "\e[00;32m# Busqueda de recursos vulnerables ########################################################\e[00m" 
