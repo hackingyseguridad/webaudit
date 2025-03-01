@@ -131,7 +131,7 @@ nikto -Plugins 'msgs' -host https://$1
 nikto -Plugins 'httpoptions' -host https://$1
 nikto -Plugins 'ssl' -host https://$1
 echo
-wapiti -u https://$1
+wapiti -u https://$1 -m all
 echo
 echo
 echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m"
