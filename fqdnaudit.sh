@@ -1,3 +1,4 @@
+
 #!/bin/bash
 Negro='\033[0;30m'
 Rojo='\033[0;31m'
@@ -15,7 +16,7 @@ cat << "INFO"
 |  _| (_| | (_| | | | | | (_| | |_| | (_| | | |_
 |_|  \__, |\__,_|_| |_|  \__,_|\__,_|\__,_|_|\__| V 1.0
         |_|      http://www.hackingyseguridad.com
-                 ALDEA DEL FRESNO
+
 $$$$$$ $$$$$ $$$$  $$$ $$$$  $$$     $$$$     $$$$$$ $$$$$ $$$$$$$$$ $$$$$$$$$
 INFO
 
@@ -53,6 +54,7 @@ echo
 echo -e "\e[00;32m# Detecta firewall WAF ########################################################\e[00m"
 echo
 curl -sI  https://$1   | grep "server: "
+echo
 timeout 3 wafw00f $1
 echo
 echo -e "\e[00;32m#Vulnerabilidades SSL, certificado ######################################################\e[00m"
@@ -67,10 +69,12 @@ echo -e "\e[00;32m# Metodos HTTP ###############################################
 echo
 echo " ==== Metodos http!"
 echo "PUT";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X PUT  -H 'X-Method-Override: PUT' -H "X-HTTP-Method: PUT" -H "X-Method-Override: PUT"
-curl -k -X PUT https://$1 -d "HOLA"
+echo
+echo "prueba PUT "; curl -k -X PUT https://$1 -d "HOLA"
 echo
 echo "TRACE";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X TRACE  -H 'X-Method-Override: TRACE' -H "X-HTTP-Method: TRACE" -H "X-Method-Override: TRACE"
-curl -k https://$1 -X TRACE
+echo
+echo "prueba TRACE "; curl -k https://$1 -X TRACE
 echo
 echo "GET";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X GET -H 'X-Method-Override: GET' -H "X-HTTP-Method: GET" -H "X-Method-Override: GET"
 echo "POST";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X POST -H 'X-Method-Override: POST' -H "X-HTTP-Method: POST" -H "X-Method-Override: POST"
