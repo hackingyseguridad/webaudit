@@ -1,6 +1,6 @@
-# webaudit.sh
+## webaudit.sh
 
-# analisis automatico de vulnerabilidades web
+## analisis automatico de vulnerabilidades web
 
 Se requiere Kali Linux con las aplicaciones: 
 davtest
@@ -48,5 +48,5 @@ OWASP Vulnerabilidades Web:
 * [Cross Site Scripting](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS))
 * [Cross Site Request Forgery](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))
 * [Broken Authentication and Session Management](https://www.owasp.org/index.php/Broken_Authentication_and_Session_Management)
-
-
+#
+## https://hackingyseguridad.github.io/
