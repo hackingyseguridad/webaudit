@@ -2,6 +2,8 @@
 
 ## analisis automatico de vulnerabilidades web
 
+<img style="float:left" alt="web api estructura" src="https://github.com/hackingyseguridad/webaudit/blob/main/apiweb.png">
+
 Se requiere Kali Linux con las aplicaciones: 
 davtest
 dirb
