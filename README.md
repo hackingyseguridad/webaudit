@@ -2,7 +2,7 @@
 
 ## analisis automatico de vulnerabilidades web
 
-<img style="float:left" alt="web api estructura" src="https://github.com/hackingyseguridad/webaudit/blob/main/webapi.png">
+<img style="float:left" alt="web api estructura" src="https://github.com/hackingyseguridad/webaudit/blob/master/webapi.png">
 
 Se requiere Kali Linux con las aplicaciones: 
 davtest
