@@ -57,7 +57,11 @@ echo "HEAD";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X HEAD -H
 echo "OPTIONS";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X OPTIONS -H 'X-Method-Override: OPTIONS' -H "X-HTTP-Method: OPTIONS" -H "X-Method-Override: OPTIONS"
 echo "PATCH";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X PATCH -H 'X-Method-Override: PATCH' -H "X-HTTP-Method: PATCH" -H "X-Method-Override: PATCH"
 echo
+echo "HTTP "
 echo
+echo "HTTP 1.0"; timeout 3 curl -Is --http1.0 https://$1 | head -1
+echo "HTTP 1.1"; timeout 3 curl -Is --http1.1 https://$1 | head -1
+echo "HTTP 2.0 " timeout 3 curl -Is --http2-prior-knowledge https://$1 | head -1
 echo
 
 
