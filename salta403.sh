@@ -46,6 +46,22 @@ curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 80'
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8080' 
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8443' 
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8443' 
+echo
+echo "METODOS HTTP"
+echo
+echo "PUT";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X PUT  -H 'X-Method-Override: PUT' -H "X-HTTP-Method: PUT" -H "X-Method-Override: PUT"
+echo "TRACE";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X TRACE  -H 'X-Method-Override: TRACE' -H "X-HTTP-Method: TRACE" -H "X-Method-Override: TRACE"
+echo "GET";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X GET -H 'X-Method-Override: GET' -H "X-HTTP-Method: GET" -H "X-Method-Override: GET"
+echo "POST";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X POST -H 'X-Method-Override: POST' -H "X-HTTP-Method: POST" -H "X-Method-Override: POST"
+echo "HEAD";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X HEAD -H 'X-Method-Override: HEAD' -H "X-HTTP-Method: HEAD" -H "X-Method-Override: HEAD"
+echo "OPTIONS";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X OPTIONS -H 'X-Method-Override: OPTIONS' -H "X-HTTP-Method: OPTIONS" -H "X-Method-Override: OPTIONS"
+echo "PATCH";  curl -ks https://$1 -L -H 'User-Agent: Mozilla/5.0' -I  -X PATCH -H 'X-Method-Override: PATCH' -H "X-HTTP-Method: PATCH" -H "X-Method-Override: PATCH"
+echo
+echo
+echo
+
+
+
 
 
 
