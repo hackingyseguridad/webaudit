@@ -4,8 +4,6 @@
 
 
 
-
-
 echo
 echo "CABECERAS"
 echo
@@ -48,6 +46,7 @@ curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 80'
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8080' 
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8443' 
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8443' 
+
 
 
 
