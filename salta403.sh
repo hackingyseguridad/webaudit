@@ -1,3 +1,5 @@
+
+
 # Saltar 403 Forbidden  You don't have permission to access this resource.
 #
 
@@ -43,6 +45,11 @@ curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 80'
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8080' 
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8443' 
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Forwarded-Port: 8443' 
+
+
+
+
+
 
 
 
