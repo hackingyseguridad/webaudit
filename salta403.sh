@@ -1,11 +1,14 @@
 
-
 # Saltar 403 Forbidden  You don't have permission to access this resource.
 #
 
 
 
 
+
+echo
+echo "CABECERAS"
+echo
 curl -k  -v -I -i --max-time 5 https://$1 -H "$1"
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Original-URL: '
 curl -k  -v -I -i --max-time 5 https://$1 -H 'X-Custom-IP-Authorization: 127.0.0.1'
