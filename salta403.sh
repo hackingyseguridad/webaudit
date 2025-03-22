@@ -3,4 +3,4 @@
 
 
 
-curl -k https://$1 -H "Host: localhost" -v -I -i
+curl -k https://$1 -H "Host: localhost" -v -I -i --max-time 5
