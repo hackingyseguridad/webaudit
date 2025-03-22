@@ -1,8 +1,8 @@
-
+#!/bin/sh
 # Saltar 403 Forbidden  You don't have permission to access this resource.
 #
-
-
+# (R ) hackingyseguridad.com 2025
+#
 
 echo
 echo "CABECERAS"
