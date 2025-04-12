@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # ==================================================
-# hackingyseguridad.com 2025
-# Escáner de secretos en páginas web y sus recursos
+# (R) hackingyseguridad.com 2025
+# busca secretos en el codigo de las páginas web y sus recursos
 # Compatible con Bash 1.x+ y shells antiguas
-# uso; 
+# Uso; 
 # sh buscasecretos.sh http://hackingyseguridad.com
 # ==================================================
 
