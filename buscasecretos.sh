@@ -8,14 +8,18 @@
 # sh buscasecretos.sh http://hackingyseguridad.com
 # ==================================================
 
-# Configuración básica
-TMPDIR="/tmp/secretscan_$$"
-mkdir "$TMPDIR" || exit 1
+# Configuración
+TMPDIR="/tmp/webscan_$$"
+mkdir "$TMPDIR" || {
+  echo "ERROR: No se pudo crear directorio temporal"
+  exit 1
+}
 LOG="$TMPDIR/scan.log"
 
-# Funciones básicas (compatibles con shells antiguas)
+# Funciones básicas compatibles
 error() {
   echo "ERROR: $1"
+  rm -rf "$TMPDIR"
   exit 1
 }
 
@@ -28,7 +32,7 @@ download() {
 }
 
 # Verificar comandos esenciales
-for cmd in wget grep sed tr; do
+for cmd in wget grep sed tr file; do
   if ! command -v "$cmd" >/dev/null 2>&1; then
     error "Falta comando: $cmd"
   fi
@@ -48,11 +52,11 @@ BASE_URL=$(echo "$URL" | sed 's|^\(https\?://[^/]*\).*|\1|')
 MAIN_FILE="$TMPDIR/main.html"
 download "$URL" "$MAIN_FILE" || error "No se pudo descargar URL principal"
 
-# Extraer recursos (JS, CSS)
+# Extraer recursos (JS, CSS, JSON)
 echo "Extrayendo recursos..." >> "$LOG"
 grep -E -i 'src=["'\'']|href=["'\'']' "$MAIN_FILE" | 
   sed 's/.*src=["'\'']//;s/.*href=["'\'']//;s/["'\''].*//' |
-  grep -E -i '\.(js|css)(\?.*)?$' |
+  grep -E -i '\.(js|css|json)(\?.*)?$' |
   sort -u > "$TMPDIR/resources.txt"
 
 # Descargar recursos encontrados
@@ -68,43 +72,77 @@ while read -r resource; do
   safe_name=$(echo "$resource" | tr '/?&' '_')
   outfile="$TMPDIR/res_$safe_name"
   
-  download "$res_url" "$outfile" && echo "OK: $res_url" >> "$LOG" || echo "FALLO: $res_url" >> "$LOG"
+  if download "$res_url" "$outfile"; then
+    echo "OK: $res_url" >> "$LOG"
+  else
+    echo "FALLO: $res_url" >> "$LOG"
+  fi
 done < "$TMPDIR/resources.txt"
 
-# Patrones de búsqueda (compatibles con grep antiguo)
+# Patrones de búsqueda
 PATTERNS='
 api.?key
 secret.?key
-password
 [A-Za-z0-9_\-]{24,}
 AKIA[0-9A-Z]{16}
 eyJ[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-]+
-mysql://[a-zA-Z0-9_]+:[^@]+@
-postgres://[a-zA-Z0-9_]+:[^@]+@
+password
+token
+access[_-]?key
+credentials
 '
 
 # Escanear archivos
 echo ""
 echo "=== RESULTADOS DEL ESCANEO ==="
+echo "URL analizada: $URL"
 echo ""
 
 find "$TMPDIR" -type f | while read -r file; do
   filename=$(echo "$file" | sed "s|$TMPDIR/||")
-  echo "Analizando: $filename"
+  [ "$filename" = "scan.log" ] && continue
   
-  echo "$PATTERNS" | while read -r pattern; do
-    [ -z "$pattern" ] && continue
-    
-    matches=$(grep -E -o "$pattern" "$file" 2>/dev/null | sed 's/^/  /')
-    if [ -n "$matches" ]; then
-      echo "[!] Posible secreto (patrón: $pattern):"
-      echo "$matches"
-      echo "--------------------------------"
-    fi
-  done
+  # Determinar origen del archivo
+  case "$filename" in
+    main.html) origen="Página principal ($URL)" ;;
+    res_*) origen="Recurso: $(echo "$filename" | sed 's/res_//;s/_/\//g')" ;;
+    *) origen="Archivo interno: $filename" ;;
+  esac
+
+  echo "--------------------------------------------------"
+  echo "Analizando: $origen"
+  echo "--------------------------------------------------"
+
+  # Determinar si es binario
+  if file "$file" | grep -q "text"; then
+    # Archivo de texto
+    echo "$PATTERNS" | while read -r pattern; do
+      [ -z "$pattern" ] && continue
+      
+      matches=$(grep -E -n -o "$pattern" "$file" 2>/dev/null | sed 's/^/  Línea /')
+      if [ -n "$matches" ]; then
+        echo "[!] Secreto encontrado (patrón: $pattern)"
+        echo "$matches"
+        echo ""
+      fi
+    done
+  else
+    # Archivo binario
+    echo "$PATTERNS" | while read -r pattern; do
+      [ -z "$pattern" ] && continue
+      
+      matches=$(strings "$file" | grep -E -n -o "$pattern" 2>/dev/null | sed 's/^/  Offset /')
+      if [ -n "$matches" ]; then
+        echo "[!] Secreto encontrado (patrón: $pattern)"
+        echo "$matches"
+        echo ""
+      fi
+    done
+  fi
 done
 
 # Limpieza
 rm -rf "$TMPDIR"
 echo ""
-echo "Escaneo completado. Ver $LOG para detalles."
+echo "Escaneo completado. Ver $LOG para detalles de descarga."
+
