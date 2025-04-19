@@ -1,0 +1,15 @@
+# busca en el codigo secretos: credenciales, tokens, claves
+
+grep  -Hrn "user" 
+grep  -Hrn "http*" 
+grep  -Hrn "token*" 
+grep  -Hrn "password*" 
+grep  -Hrn "auth" 
+grep  -Hrn "api" 
+grep  -Hrn "sql" 
+grep  -Hrn "Digest" 
+grep  -Hrn "email" 
+grep  -Hrn "ouath2" 
+grep  -Hrn "UserName" 
+grep  -Hrn "Passorwd" 
+grep  -Hrn "User" 
