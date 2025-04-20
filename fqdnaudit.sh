@@ -133,6 +133,8 @@ nikto -Plugins 'ssl' -host https://$1
 echo
 wapiti -u https://$1 -m all
 echo
+davtest --url https://$1
+echo
 echo
 echo -e "\e[00;32m# Escaneo con Nmap de puertos web habituales ########################################################\e[00m"
 echo
