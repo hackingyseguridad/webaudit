@@ -59,7 +59,7 @@ timeout 3 wafw00f $1
 echo
 echo -e "\e[00;32m#Vulnerabilidades SSL, certificado ######################################################\e[00m"
 echo
-sslyze --heartbleed $1
+sslyze  $1
 sslyze --certinfo $1
 sslyze --compression $1
 sslyze --reneg $1
