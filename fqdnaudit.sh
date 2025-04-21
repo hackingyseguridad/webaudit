@@ -125,11 +125,11 @@ sqlmap -u 'https://$1' --crawl=3 --random-agent --batch --forms --threads=5 --ho
 echo
 echo -e "\e[00;32m# Vulnerabilidades web con Nikto ########################################################\e[00m"
 echo
-nikto -Plugins 'cookies' -host https://$1
-nikto -Plugins 'headers' -host https://$1
-nikto -Plugins 'msgs' -host https://$1
-nikto -Plugins 'httpoptions' -host https://$1
-nikto -Plugins 'ssl' -host https://$1
+nikto -Plugins 'cookies' -host https://$1 -C all
+nikto -Plugins 'headers' -host https://$1 -C all
+nikto -Plugins 'msgs' -host https://$1 -C all
+nikto -Plugins 'httpoptions' -host https://$1 -C all
+nikto -Plugins 'ssl' -host https://$1 -C all
 echo
 wapiti -u https://$1 -m all
 echo
