@@ -4,7 +4,7 @@
 # Muestra URL completa y  linea donde se encontro▒
 
 # Configuración
-TIMEOUT=39  # Segundos máximos de espera por URL
+TIMEOUT=3  # Segundos máximos de espera por URL
 URL_FILE="url.txt"  # Archivo con las URLs
 TEMP_PREFIX="/tmp/websearch_$$"  # Prefijo para archivos temporales
 
@@ -65,14 +65,15 @@ while read url; do
   total_urls=`expr $total_urls + 1`
   tempfile="${TEMP_PREFIX}_${total_urls}.html"
 
-  echo "Analizando URL $total_urls: $url"
+ echo -n ","
+#  echo "Analizando URL $total_urls: $url"
 
   # Descargar con timeout
   download_with_timeout "$url" "$tempfile"
 
   # Verificar si la descarga fue exitosa
   if [ ! -s "$tempfile" ]; then
-    echo "  -> Timeout o error después de $TIMEOUT segundos, saltando..." >&2
+    # echo "  -> Timeout o error después de $TIMEOUT segundos, saltando..." >&2
     rm -f "$tempfile"
     continue
   fi
@@ -89,7 +90,7 @@ while read url; do
     #
     if echo "$line" | grep "$1"  >/dev/null; then
       if [ $found_in_url -eq 0 ]; then
-        echo "----------------------------------------"
+        echo  "\n================================================"
         echo "COINCIDENCIA ENCONTRADA EN: $url"
         urls_con_coincidencias=`expr $urls_con_coincidencias + 1`
         found_in_url=1
