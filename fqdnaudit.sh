@@ -60,6 +60,9 @@ echo
 echo -e "\e[00;32m#Vulnerabilidades SSL, certificado ######################################################\e[00m"
 echo
 sslyze  $1
+echo
+sslscan $1
+echo
 sslyze --certinfo $1
 sslyze --compression $1
 sslyze --reneg $1
