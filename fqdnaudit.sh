@@ -47,6 +47,10 @@ HEAD https://$1
 echo
 curl -I -v https://$1
 echo
+echo -e "\e[00;32m# Cabeceras de seguridad, X-Headers ###################################################\e[00m"
+echo
+wget -S --spider -O /dev/null https://$1 2>&1
+echo
 echo -e "\e[00;32m# Detecta firewall o balanceador ########################################################\e[00m"
 echo
 timeout 3 lbd $1
