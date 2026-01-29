@@ -1,4 +1,5 @@
-#
+#!/bin/bash
+
 # busca online en el codigo secretos: credenciales, tokens, claves
 # uso.: secretos.sh URL 
 # cat index.html | grep -aoP "(?<=(\"|\'|\`))\/[a-zA-Z0-9_?&=\/\-\#\.]*(?=(\"|\'|\`))" | sort -u
