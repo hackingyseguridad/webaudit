@@ -3,7 +3,8 @@
 # Analisis automatizado de urls en fichero  url.txt
 # lee del fichero url por url y la  analiza 
 # @antonio_taboada
-#
+
+echo "##########################################################"
 
 while read url; do
     ./wafbypass.py -u "$url"
