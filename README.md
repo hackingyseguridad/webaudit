@@ -310,7 +310,7 @@ sudo apt install -y sqlmap
 
 ---
 
-## 🔍 Vulnerabilidades Detectadas
+### Vulnerabilidades Detectadas
 
 El repositorio cubre las **20+ principales vulnerabilidades OWASP Top 10 2024** y más:
 
@@ -343,7 +343,7 @@ El repositorio cubre las **20+ principales vulnerabilidades OWASP Top 10 2024** 
 
 ---
 
-## 📌 Ejemplos de Uso
+### Ejemplos de Uso
 
 ### Caso 1: Auditoría Web Completa
 
@@ -600,8 +600,6 @@ export CA_CERT="/path/to/ca-bundle.crt"
 
 ---
 
-
-
 | Recurso | Enlace |
 |---------|--------|
 | Sitio oficial | [hackingyseguridad.com](http://hackingyseguridad.com/) |
@@ -609,20 +607,11 @@ export CA_CERT="/path/to/ca-bundle.crt"
 | GitHub Profile | [@hackingyseguridad](https://github.com/hackingyseguridad) |
 | Twitter/X | [@hackyseguridad](https://twitter.com/hackyseguridad) |
 
----
-
-## 📄 Licencia
-
-Este proyecto está bajo licencia **[GPL-3.0](./LICENSE)**. Consulta `LICENSE` para detalles.
-
-```
-Copyright (c) 2024 hackingyseguridad (Antonio Taboada)
-Released under GPL-3.0 License
 ```
 
 ---
 
-## ⚡ Quick Reference
+### Quick Reference
 
 ```bash
 # Instalación rápida
