@@ -2,38 +2,17 @@
 
 ---
 
-# webaudit.sh — Análisis Automatizado de Vulnerabilidades Web
+### webaudit.sh — Análisis Automatizado de Vulnerabilidades Web
 
 ![GitHub Release](https://img.shields.io/badge/Release-Continuous-informational) ![License](https://img.shields.io/badge/License-GPL--3.0-green) ![Kali Linux](https://img.shields.io/badge/Platform-Kali%20Linux-red) ![Shell](https://img.shields.io/badge/Language-Shell%20%2F%20Bash-4EAA25)
 
 Conjunto integral de scripts de **pentesting ofensivo** y **auditoría de seguridad web** diseñados para automatizar el descubrimiento, enumeración y detección de vulnerabilidades en aplicaciones web, APIs REST y servicios HTTP/HTTPS en entornos Linux Kali. Incluye exploits NSE nativos para Nmap, scripts de bypass de WAF, inyección SQL, XSS, LFI/RFI y búsqueda de secretos en código fuente.
 
-**Sitio:** [hackingyseguridad.com](http://hackingyseguridad.com/) | **Documentación:** [https://hackingyseguridad.github.io/](https://hackingyseguridad.github.io/)
-
----
-
-## ⚠️ Descargo de Responsabilidad Legal
-
-Este repositorio contiene herramientas de **pentesting ofensivo** destinadas **EXCLUSIVAMENTE** a:
-
-- ✅ Auditorías de seguridad **autorizadas** en infraestructuras propias
-- ✅ Evaluaciones de seguridad en entornos de prueba controlados (laboratorios, sandboxes)
-- ✅ Investigación académica y educativa en ciberseguridad
-- ✅ Cumplimiento normativo (PTES, OWASP, NIST)
-
-### ❌ Prohibido:
-
-- ❌ Acceso no autorizado a sistemas de terceros
-- ❌ Ataques o denegación de servicio (DoS/DDoS)
-- ❌ Exfiltración de datos personales o confidenciales
-- ❌ Uso comercial sin consentimiento del propietario
-- ❌ Violación de leyes de protección de datos (GDPR, LSSI-CE, etc.)
-
 **El autor no se responsabiliza de uso malintencionado.** Asumiendo responsabilidad legal bajo jurisdicción española (Código Penal Art. 197-198) y europea (Directiva 2013/40/UE).
 
 ---
 
-## 📋 Tabla de Contenidos
+### Tabla de Contenidos
 
 1. [Requisitos del Sistema](#requisitos-del-sistema)
 2. [Instalación Rápida](#instalación-rápida)
@@ -47,7 +26,7 @@ Este repositorio contiene herramientas de **pentesting ofensivo** destinadas **E
 
 ---
 
-## 💻 Requisitos del Sistema
+### Requisitos del Sistema
 
 ### Sistema Operativo
 
@@ -69,7 +48,7 @@ sudo apt update && sudo apt upgrade
 
 ---
 
-## 🚀 Instalación Rápida
+### Instalación Rápida
 
 ### Opción 1: Clonación desde GitHub (Recomendado)
 
@@ -102,7 +81,7 @@ bash -c 'for tool in nmap nikto wapiti golismero wafw00f; do command -v "$tool" 
 
 ---
 
-## 📁 Scripts Principales
+### Scripts Principales
 
 ### 1. **webaudit.sh** — Orquestador Principal
 
@@ -280,9 +259,9 @@ nmap -sV --script CVE-2022-22965.nse target.com -p 8080,8081
 
 ---
 
-## 🛠️ Herramientas Requeridas
+### Herramientas requeridas
 
-### Instalación Automática
+### Instalación
 
 El script `instalar.sh` instala automáticamente todas las dependencias:
 
@@ -457,7 +436,7 @@ nmap -iL subdominios.txt -p 80,443,8080,8443 -sV -oN nmap-results.txt
 
 ---
 
-## 📂 Estructura del Repositorio
+### Estructura del Repositorio
 
 ```
 webaudit/
@@ -546,7 +525,7 @@ webaudit/
 
 ---
 
-## 📚 Referencias OWASP
+###  Referencias OWASP
 
 ### OWASP Testing Guide
 
@@ -621,28 +600,7 @@ export CA_CERT="/path/to/ca-bundle.crt"
 
 ---
 
-## 🤝 Contribuciones
 
-¡Las contribuciones son bienvenidas! Si encuentras bugs o tienes mejoras:
-
-1. **Fork** el repositorio
-2. **Crea rama** (`git checkout -b feature/mejora`)
-3. **Realiza cambios** con mensajes claros
-4. **Commit** (`git commit -am 'Añade feature X'`)
-5. **Push** a rama (`git push origin feature/mejora`)
-6. **Pull Request** con descripción detallada
-
-### Reporte de Bugs
-
-Usa GitHub Issues con:
-- ✅ Reproducción paso-a-paso
-- ✅ Versión Kali Linux
-- ✅ Herramientas instaladas (`apt list --installed | grep nmap`)
-- ✅ Salida del error completa
-
----
-
-## 📖 Documentación Adicional
 
 | Recurso | Enlace |
 |---------|--------|
@@ -696,8 +654,9 @@ nmap --script CVE-2021-41773.nse target.com
 
 **Última actualización:** Julio 2026  
 **Versión:** 2.5 Continuous  
-**Mantenedor:** [@hackingyseguridad](https://github.com/hackingyseguridad)
+
+[@hackingyseguridad](https://github.com/hackingyseguridad)
 
 ---
 
-*Para dudas o problemas, abre un issue en GitHub o contacta mediante [hackingyseguridad.com](http://hackingyseguridad.com/)*
+
