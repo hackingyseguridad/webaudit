@@ -8,7 +8,7 @@
 
 Conjunto integral de scripts de **pentesting ofensivo** y **auditoría de seguridad web** diseñados para automatizar el descubrimiento, enumeración y detección de vulnerabilidades en aplicaciones web, APIs REST y servicios HTTP/HTTPS en entornos Linux Kali. Incluye exploits NSE nativos para Nmap, scripts de bypass de WAF, inyección SQL, XSS, LFI/RFI y búsqueda de secretos en código fuente.
 
-**El autor no se responsabiliza de uso malintencionado.** Asumiendo responsabilidad legal bajo jurisdicción española (Código Penal Art. 197-198) y europea (Directiva 2013/40/UE).
+**El autor no se responsabiliza de uso malintencionado.** bajo jurisdicción española (Código Penal Art. 197-198) y europea (Directiva 2013/40/UE).
 
 ---
 
